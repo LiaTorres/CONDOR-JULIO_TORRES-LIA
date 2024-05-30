@@ -2,12 +2,10 @@ package BackEndC3.ClinicaOdontologica.controller;
 
 import BackEndC3.ClinicaOdontologica.model.Paciente;
 import BackEndC3.ClinicaOdontologica.service.PacienteService;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController //para trabajar sin tecnologia de vista
-// @Controller<-- es controller pq vamos a usar una tecnologia de vista
+@RestController
+// @Controller
 
 @RequestMapping("/pacientes")
 public class PacienteController {
@@ -16,17 +14,7 @@ public class PacienteController {
     public PacienteController() {
         pacienteService= new PacienteService();
     }
-    //ahora vienen todos los metodos que nos permitan actuar como intermediarios.
-   /* @GetMapping
-    public String buscarPacientePorCorreo(Model model, @RequestParam("email") String email){
 
-        Paciente paciente= pacienteService.buscarPorEmail(email);
-        model.addAttribute("nombre",paciente.getNombre());
-        model.addAttribute("apellido",paciente.getApellido());
-        return "index";
-
-        //return pacienteService.buscarPorEmail(email);
-    }*/
     @PostMapping //--> nos permite persistir los datos que vienen desde la vista
     public Paciente guardarPaciente(@RequestBody Paciente paciente){
         return pacienteService.guardarPaciente(paciente);
@@ -43,6 +31,7 @@ public class PacienteController {
         }
 
     }
+
     @GetMapping("/{id}")
     public Paciente buscarPorPaciente(@PathVariable Integer id){
         return pacienteService.buscarPorID(id);

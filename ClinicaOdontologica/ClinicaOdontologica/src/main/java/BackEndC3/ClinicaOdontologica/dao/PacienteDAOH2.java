@@ -62,11 +62,9 @@ public class PacienteDAOH2 implements iDao<Paciente> {
                 paciente= new Paciente(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getDate(5).toLocalDate(),domicilio,rs.getString(7));
             }
 
-
         }catch (Exception e){
             logger.error(e.getMessage());
         }
-
 
         return paciente;
     }
@@ -150,10 +148,4 @@ public class PacienteDAOH2 implements iDao<Paciente> {
 
         return paciente;
     }
-        /*private Integer id;
-    private String nombre;
-    private String apellido;
-    private String cedula;
-    private LocalDate fechaIngreso;
-    private Domicilio domicilio;*/
 }

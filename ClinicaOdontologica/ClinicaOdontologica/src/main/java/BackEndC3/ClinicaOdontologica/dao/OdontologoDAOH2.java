@@ -1,12 +1,10 @@
 package BackEndC3.ClinicaOdontologica.dao;
 
 import BackEndC3.ClinicaOdontologica.model.Odontologo;
+import BackEndC3.ClinicaOdontologica.model.Paciente;
 import org.apache.log4j.Logger;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,15 +41,24 @@ public class OdontologoDAOH2 implements iDao<Odontologo>{
 
     @Override
     public Odontologo buscarPorId(Integer id) {
-        logger.info("iniciando las operaciones de: ");
+        logger.info("iniciando las operaciones de Busqueda por ID: ");
+
         Connection connection= null;
+        Odontologo odontologo= null;
         try{
             connection= BD.getConnection();
-
+            Statement statement= connection.createStatement();
+            PreparedStatement psSElectOne= connection.prepareStatement(SQL_SELECT_ONE);
+            psSElectOne.setInt(1,id);
+            ResultSet rs= psSElectOne.executeQuery();
+            while (rs.next()){
+                //construir el odontologo
+                odontologo= new Odontologo(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
+            }
         }catch (Exception e){
             logger.error(e.getMessage());
         }
-        return null;
+        return odontologo;
     }
 
     @Override
@@ -69,15 +76,19 @@ public class OdontologoDAOH2 implements iDao<Odontologo>{
 
     @Override
     public void actualizar(Odontologo odontologo) {
-        logger.info("iniciando las operaciones de: ");
+        logger.warn("iniciando las operaciones de actualizacion de un paciente con id : "+paciente.getId());
         Connection connection= null;
         try{
             connection= BD.getConnection();
+            PreparedStatement psUpdate= connection.prepareStatement(SQL_UPDATE);
+            psUpdate.setString(1, odontologo.getNombre());
+            psUpdate.setString(2, odontologo.getApellido());
+            psUpdate.setString(3, odontologo.getMatricula());
+            psUpdate.execute();
 
         }catch (Exception e){
             logger.error(e.getMessage());
         }
-
     }
 
     @Override
