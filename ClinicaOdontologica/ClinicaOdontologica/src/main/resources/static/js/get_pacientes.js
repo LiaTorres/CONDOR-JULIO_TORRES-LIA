@@ -3,7 +3,7 @@ window.addEventListener('load', function () {
 
       //con fetch invocamos a la API de peliculas con el método GET
       //nos devolverá un JSON con una colección de peliculas
-      const url = '/odontologos';
+      const url = '/pacientes';
       const settings = {
         method: 'GET'
       }
@@ -12,7 +12,7 @@ window.addEventListener('load', function () {
       .then(response => response.json())
       .then(data => {
       //recorremos la colección de peliculas del JSON
-         for(odontologo of data){
+         for(paciente of data){
             //por cada pelicula armaremos una fila de la tabla
             //cada fila tendrá un id que luego nos permitirá borrar la fila si eliminamos la pelicula
             var table = document.getElementById("odontologoTable");
