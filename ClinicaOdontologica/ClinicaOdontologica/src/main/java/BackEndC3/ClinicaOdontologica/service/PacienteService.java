@@ -2,7 +2,10 @@ package BackEndC3.ClinicaOdontologica.service;
 
 import BackEndC3.ClinicaOdontologica.dao.PacienteDAOH2;
 import BackEndC3.ClinicaOdontologica.dao.iDao;
+import BackEndC3.ClinicaOdontologica.model.Odontologo;
 import BackEndC3.ClinicaOdontologica.model.Paciente;
+
+import java.util.List;
 
 public class PacienteService {
 private iDao<Paciente> pacienteiDao;
@@ -11,6 +14,9 @@ private iDao<Paciente> pacienteiDao;
         pacienteiDao= new PacienteDAOH2();
     }
     //metodos manuales
+    public List<Paciente> buscarPacientes(){
+        return pacienteiDao.buscarTodos();
+    }
     public Paciente guardarPaciente(Paciente paciente){
         return pacienteiDao.guardar(paciente);
     }

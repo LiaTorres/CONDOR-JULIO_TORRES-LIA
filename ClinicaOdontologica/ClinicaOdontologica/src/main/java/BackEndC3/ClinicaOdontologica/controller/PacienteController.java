@@ -1,8 +1,11 @@
 package BackEndC3.ClinicaOdontologica.controller;
 
+import BackEndC3.ClinicaOdontologica.model.Odontologo;
 import BackEndC3.ClinicaOdontologica.model.Paciente;
 import BackEndC3.ClinicaOdontologica.service.PacienteService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 // @Controller
@@ -13,6 +16,12 @@ public class PacienteController {
 
     public PacienteController() {
         pacienteService= new PacienteService();
+    }
+
+    @GetMapping
+    public List<Paciente> pacienteList() {
+        List<Paciente> listaPacientes = pacienteService.buscarPacientes();
+        return listaPacientes;
     }
 
     @PostMapping //--> nos permite persistir los datos que vienen desde la vista
