@@ -76,7 +76,7 @@ public class OdontologoDAOH2 implements iDao<Odontologo>{
 
     @Override
     public void actualizar(Odontologo odontologo) {
-        logger.warn("iniciando las operaciones de actualizacion de un paciente con id : "+paciente.getId());
+        logger.warn("iniciando las operaciones de actualizacion de un paciente con id : "+odontologo.getId());
         Connection connection= null;
         try{
             connection= BD.getConnection();
