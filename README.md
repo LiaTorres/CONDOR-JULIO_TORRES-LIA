@@ -14,3 +14,4 @@ Este proyecto consiste en el desarrollo de un sistema backend para la gestión d
 - **Maven**: Herramienta de gestión de dependencias y construcción.
 - **JUnit**: Pruebas unitarias.
 - **Postman**: Pruebas de la API.
+- 
