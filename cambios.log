@@ -122,3 +122,5 @@ INSERT INTO DOMICILIOS (CALLE, NUMERO,LOCALIDAD, PROVINCIA) VALUES(?,?,?,?) [235
 [2024-05-30 19:05:37] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
 [2024-05-30 19:05:37] [ INFO ] [OdontologoDAOH2:44] iniciando las operaciones de Busqueda por ID: 
 [2024-05-30 19:05:37] [ INFO ] [TurnoDAOLISTA:23] turno guardado con exito
+[2024-05-30 20:06:46] [ INFO ] [BD:34] tabla creada con exito
+[2024-05-30 20:07:26] [ INFO ] [OdontologoDAOH2:96] iniciando las operaciones de:  listado de todos los odontologos
