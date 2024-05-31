@@ -125,3 +125,10 @@ INSERT INTO DOMICILIOS (CALLE, NUMERO,LOCALIDAD, PROVINCIA) VALUES(?,?,?,?) [235
 [2024-05-30 20:06:46] [ INFO ] [BD:34] tabla creada con exito
 [2024-05-30 20:07:26] [ INFO ] [OdontologoDAOH2:96] iniciando las operaciones de:  listado de todos los odontologos
 [2024-05-30 20:13:54] [ INFO ] [OdontologoDAOH2:96] iniciando las operaciones de:  listado de todos los odontologos
+[2024-05-30 21:04:36] [ INFO ] [BD:34] tabla creada con exito
+[2024-05-30 21:09:05] [ INFO ] [OdontologoDAOH2:96] iniciando las operaciones de:  listado de todos los odontologos
+[2024-05-30 21:09:09] [ INFO ] [OdontologoDAOH2:96] iniciando las operaciones de:  listado de todos los odontologos
+[2024-05-30 21:12:24] [ INFO ] [OdontologoDAOH2:96] iniciando las operaciones de:  listado de todos los odontologos
+[2024-05-30 21:12:43] [ INFO ] [BD:34] tabla creada con exito
+[2024-05-30 21:16:12] [ INFO ] [OdontologoDAOH2:96] iniciando las operaciones de:  listado de todos los odontologos
+[2024-05-30 21:16:16] [ INFO ] [OdontologoDAOH2:96] iniciando las operaciones de:  listado de todos los odontologos
