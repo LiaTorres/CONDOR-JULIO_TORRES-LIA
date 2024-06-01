@@ -27,4 +27,15 @@ private iDao<Paciente> pacienteiDao;
     public void actualizarPaciente(Paciente paciente){
         pacienteiDao.actualizar(paciente);
     }
+    public String pacienteAEliminar(Paciente paciente){
+        try{
+            pacienteiDao.eliminar(paciente.getId());
+            //domicilioiDao.eliminar(paciente.getDomicilio().getId());
+            return "El paciente fue eliminado con éxito";
+
+        }catch (Exception e){
+            return "Error al eliminar paciente";
+        }
+
+    }
 }
