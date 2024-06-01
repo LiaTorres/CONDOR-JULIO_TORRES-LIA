@@ -439,3 +439,4 @@ INSERT INTO DOMICILIOS (CALLE, NUMERO,LOCALIDAD, PROVINCIA) VALUES(?,?,?,?) [235
 [2024-06-01 00:21:46] [ INFO ] [PacienteDAOH2:103] iniciando las operaciones de busqueda:
 [2024-06-01 00:21:46] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
 [2024-06-01 00:21:46] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-05-31 23:09:59] [ INFO ] [BD:34] tabla creada con exito
