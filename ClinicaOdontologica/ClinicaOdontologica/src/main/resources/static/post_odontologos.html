@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Agregar Odontologos</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/post_odontologos.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Agregar Odontologo</h1>
+
+    <!-- Formulario para agregar odontólogos -->
+    <div>
+        <h2>Agregar Odontólogo</h2>
+        <form id="addOdontologoForm">
+            <div class="form-group">
+                <label>Matrícula:</label>
+                <input type="text" class="form-control" id="odontologoMatricula" required>
+            </div>
+            <div class="form-group">
+                <label>Nombre:</label>
+                <input type="text" class="form-control" id="odontologoNombre" required>
+            </div>
+            <div class="form-group">
+                <label>Apellido:</label>
+                <input type="text" class="form-control" id="odontologoApellido" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar Odontólogo</button>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

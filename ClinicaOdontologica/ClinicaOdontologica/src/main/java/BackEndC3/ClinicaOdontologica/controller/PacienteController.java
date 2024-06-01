@@ -1,6 +1,5 @@
 package BackEndC3.ClinicaOdontologica.controller;
 
-import BackEndC3.ClinicaOdontologica.model.Odontologo;
 import BackEndC3.ClinicaOdontologica.model.Paciente;
 import BackEndC3.ClinicaOdontologica.service.PacienteService;
 import org.springframework.web.bind.annotation.*;
