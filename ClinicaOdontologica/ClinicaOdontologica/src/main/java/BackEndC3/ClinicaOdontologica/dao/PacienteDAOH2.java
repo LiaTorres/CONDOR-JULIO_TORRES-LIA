@@ -71,8 +71,19 @@ public class PacienteDAOH2 implements iDao<Paciente> {
 
     @Override
     public void eliminar(Integer id) {
+        logger.warn("iniciando las operaciones de eliminación de un paciente con id : "+ id);
+        Connection connection= null;
+        try{
+            connection= BD.getConnection();
+            PreparedStatement ps= connection.prepareStatement(SQL_DELETE_BY_ID);
+            ps.setInt(1,id);
+            ps.execute();
 
+        }catch (Exception e){
+            logger.error(e.getMessage());
+        }
     }
+
 
     @Override
     public void actualizar(Paciente paciente) {
