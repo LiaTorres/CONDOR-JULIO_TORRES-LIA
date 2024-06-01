@@ -17,7 +17,6 @@ window.addEventListener("load", function () {
           //cada fila tendrá un id que luego nos permitirá borrar la fila si eliminamos la pelicula
           var table = document
             .getElementById("pacientesTable")
-            .getElementsByTagName("tbody")[0];
           var pacienteRow = table.insertRow();
           let tr_id = paciente.id;
           pacienteRow.id = tr_id;
