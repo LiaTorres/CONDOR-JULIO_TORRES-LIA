@@ -440,3 +440,206 @@ INSERT INTO DOMICILIOS (CALLE, NUMERO,LOCALIDAD, PROVINCIA) VALUES(?,?,?,?) [235
 [2024-06-01 00:21:46] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
 [2024-06-01 00:21:46] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
 [2024-05-31 23:09:59] [ INFO ] [BD:34] tabla creada con exito
+[2024-05-31 23:44:10] [ INFO ] [BD:34] tabla creada con exito
+[2024-05-31 23:45:04] [ INFO ] [PacienteDAOH2:115] iniciando las operaciones de busqueda:
+[2024-05-31 23:45:04] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-05-31 23:45:04] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-05-31 23:45:14] [ INFO ] [PacienteDAOH2:115] iniciando las operaciones de busqueda:
+[2024-05-31 23:45:14] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-05-31 23:45:14] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-05-31 23:45:25] [ INFO ] [PacienteDAOH2:21] inciando las operaciones de guardado de : Juan Jorge
+[2024-05-31 23:45:25] [ INFO ] [DomicilioDAOH2:20] iniciando las operaciones de guardado de un domicilio con id: 123
+[2024-05-31 23:45:25] [ ERROR] [DomicilioDAOH2:37] La columna "LOCALIDAD" no permite valores nulos (NULL)
+NULL not allowed for column "LOCALIDAD"; SQL statement:
+INSERT INTO DOMICILIOS (CALLE, NUMERO,LOCALIDAD, PROVINCIA) VALUES(?,?,?,?) [23502-214]
+[2024-05-31 23:45:25] [ INFO ] [PacienteDAOH2:39] paciente guardado con exito
+[2024-05-31 23:45:32] [ INFO ] [PacienteDAOH2:115] iniciando las operaciones de busqueda:
+[2024-05-31 23:45:32] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-05-31 23:45:32] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-05-31 23:45:32] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 123
+[2024-05-31 23:45:46] [ INFO ] [PacienteDAOH2:115] iniciando las operaciones de busqueda:
+[2024-05-31 23:45:46] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-05-31 23:45:46] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-05-31 23:45:46] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 123
+[2024-05-31 23:46:49] [ INFO ] [PacienteDAOH2:115] iniciando las operaciones de busqueda:
+[2024-05-31 23:46:49] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-05-31 23:46:49] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-05-31 23:46:49] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 123
+[2024-05-31 23:46:51] [ INFO ] [PacienteDAOH2:115] iniciando las operaciones de busqueda:
+[2024-05-31 23:46:51] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-05-31 23:46:51] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-05-31 23:46:51] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 123
+[2024-05-31 23:49:22] [ INFO ] [BD:34] tabla creada con exito
+[2024-05-31 23:51:00] [ INFO ] [PacienteDAOH2:115] iniciando las operaciones de busqueda:
+[2024-05-31 23:51:01] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-05-31 23:51:01] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-05-31 23:51:31] [ INFO ] [PacienteDAOH2:115] iniciando las operaciones de busqueda:
+[2024-05-31 23:51:31] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-05-31 23:51:31] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-05-31 23:51:59] [ INFO ] [PacienteDAOH2:21] inciando las operaciones de guardado de : Juan Jorge
+[2024-05-31 23:51:59] [ INFO ] [DomicilioDAOH2:20] iniciando las operaciones de guardado de un domicilio con id: null
+[2024-05-31 23:51:59] [ ERROR] [DomicilioDAOH2:37] La columna "LOCALIDAD" no permite valores nulos (NULL)
+NULL not allowed for column "LOCALIDAD"; SQL statement:
+INSERT INTO DOMICILIOS (CALLE, NUMERO,LOCALIDAD, PROVINCIA) VALUES(?,?,?,?) [23502-214]
+[2024-05-31 23:51:59] [ ERROR] [PacienteDAOH2:43] Cannot invoke "java.lang.Integer.intValue()" because the return value of "BackEndC3.ClinicaOdontologica.model.Domicilio.getId()" is null
+[2024-05-31 23:52:10] [ INFO ] [PacienteDAOH2:21] inciando las operaciones de guardado de : Juan Jorge
+[2024-05-31 23:52:10] [ INFO ] [DomicilioDAOH2:20] iniciando las operaciones de guardado de un domicilio con id: null
+[2024-05-31 23:52:10] [ ERROR] [DomicilioDAOH2:37] La columna "LOCALIDAD" no permite valores nulos (NULL)
+NULL not allowed for column "LOCALIDAD"; SQL statement:
+INSERT INTO DOMICILIOS (CALLE, NUMERO,LOCALIDAD, PROVINCIA) VALUES(?,?,?,?) [23502-214]
+[2024-05-31 23:52:10] [ ERROR] [PacienteDAOH2:43] Cannot invoke "java.lang.Integer.intValue()" because the return value of "BackEndC3.ClinicaOdontologica.model.Domicilio.getId()" is null
+[2024-05-31 23:52:20] [ INFO ] [PacienteDAOH2:115] iniciando las operaciones de busqueda:
+[2024-05-31 23:52:20] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-05-31 23:52:20] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-05-31 23:53:01] [ INFO ] [PacienteDAOH2:115] iniciando las operaciones de busqueda:
+[2024-05-31 23:53:01] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-05-31 23:53:01] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-05-31 23:53:10] [ INFO ] [PacienteDAOH2:21] inciando las operaciones de guardado de : Juan Jorge
+[2024-05-31 23:53:10] [ INFO ] [DomicilioDAOH2:20] iniciando las operaciones de guardado de un domicilio con id: 123
+[2024-05-31 23:53:10] [ ERROR] [DomicilioDAOH2:37] La columna "LOCALIDAD" no permite valores nulos (NULL)
+NULL not allowed for column "LOCALIDAD"; SQL statement:
+INSERT INTO DOMICILIOS (CALLE, NUMERO,LOCALIDAD, PROVINCIA) VALUES(?,?,?,?) [23502-214]
+[2024-05-31 23:53:10] [ INFO ] [PacienteDAOH2:39] paciente guardado con exito
+[2024-05-31 23:53:34] [ INFO ] [PacienteDAOH2:115] iniciando las operaciones de busqueda:
+[2024-05-31 23:53:34] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-05-31 23:53:34] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-05-31 23:53:34] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 123
+[2024-05-31 23:53:58] [ INFO ] [PacienteDAOH2:115] iniciando las operaciones de busqueda:
+[2024-05-31 23:53:58] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-05-31 23:53:58] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-05-31 23:53:58] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 123
+[2024-05-31 23:58:45] [ INFO ] [OdontologoDAOH2:22] iniciando las operaciones de: guardado de :  1
+[2024-05-31 23:58:50] [ INFO ] [OdontologoDAOH2:96] iniciando las operaciones de:  listado de todos los odontologos
+[2024-05-31 23:59:05] [ INFO ] [PacienteDAOH2:50] iniciando la operacion de buscado de un paciente con id : 1
+[2024-05-31 23:59:05] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-05-31 23:59:05] [ INFO ] [OdontologoDAOH2:44] iniciando las operaciones de Busqueda por ID: 
+[2024-05-31 23:59:05] [ INFO ] [TurnoDAOLISTA:15] iniciando las operaciones de guardado de un turno
+[2024-05-31 23:59:05] [ INFO ] [PacienteDAOH2:50] iniciando la operacion de buscado de un paciente con id : 1
+[2024-05-31 23:59:05] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-05-31 23:59:05] [ INFO ] [OdontologoDAOH2:44] iniciando las operaciones de Busqueda por ID: 
+[2024-05-31 23:59:05] [ INFO ] [TurnoDAOLISTA:23] turno guardado con exito
+[2024-05-31 23:59:09] [ INFO ] [TurnoDAOLISTA:52] iniciando las operacion de mostrar todos los turnos
+[2024-05-31 23:59:51] [ INFO ] [PacienteDAOH2:115] iniciando las operaciones de busqueda:
+[2024-05-31 23:59:51] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-05-31 23:59:51] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-05-31 23:59:51] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 123
+[2024-06-01 00:01:03] [ INFO ] [PacienteDAOH2:21] inciando las operaciones de guardado de : Juan Jorge
+[2024-06-01 00:01:03] [ INFO ] [DomicilioDAOH2:20] iniciando las operaciones de guardado de un domicilio con id: 123
+[2024-06-01 00:01:03] [ INFO ] [DomicilioDAOH2:34] domicilio guardado
+[2024-06-01 00:01:03] [ INFO ] [PacienteDAOH2:39] paciente guardado con exito
+[2024-06-01 00:01:10] [ INFO ] [PacienteDAOH2:21] inciando las operaciones de guardado de : Juan Jorge
+[2024-06-01 00:01:10] [ INFO ] [DomicilioDAOH2:20] iniciando las operaciones de guardado de un domicilio con id: 123
+[2024-06-01 00:01:10] [ INFO ] [DomicilioDAOH2:34] domicilio guardado
+[2024-06-01 00:01:10] [ INFO ] [PacienteDAOH2:39] paciente guardado con exito
+[2024-06-01 00:01:26] [ INFO ] [PacienteDAOH2:115] iniciando las operaciones de busqueda:
+[2024-06-01 00:01:26] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-06-01 00:01:26] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-06-01 00:01:26] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 123
+[2024-06-01 00:01:26] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 6
+[2024-06-01 00:01:26] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 7
+[2024-06-01 00:01:46] [ INFO ] [BD:34] tabla creada con exito
+[2024-06-01 00:02:33] [ INFO ] [PacienteDAOH2:115] iniciando las operaciones de busqueda:
+[2024-06-01 00:02:33] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-06-01 00:02:33] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-06-01 00:02:35] [ INFO ] [TurnoDAOLISTA:52] iniciando las operacion de mostrar todos los turnos
+[2024-06-01 00:04:28] [ INFO ] [PacienteDAOH2:21] inciando las operaciones de guardado de : Juan Jorge
+[2024-06-01 00:04:28] [ INFO ] [DomicilioDAOH2:20] iniciando las operaciones de guardado de un domicilio con id: 123
+[2024-06-01 00:04:28] [ INFO ] [DomicilioDAOH2:34] domicilio guardado
+[2024-06-01 00:04:28] [ INFO ] [PacienteDAOH2:39] paciente guardado con exito
+[2024-06-01 00:04:31] [ INFO ] [PacienteDAOH2:21] inciando las operaciones de guardado de : Juan Jorge
+[2024-06-01 00:04:31] [ INFO ] [DomicilioDAOH2:20] iniciando las operaciones de guardado de un domicilio con id: 123
+[2024-06-01 00:04:31] [ INFO ] [DomicilioDAOH2:34] domicilio guardado
+[2024-06-01 00:04:31] [ INFO ] [PacienteDAOH2:39] paciente guardado con exito
+[2024-06-01 00:04:40] [ INFO ] [PacienteDAOH2:115] iniciando las operaciones de busqueda:
+[2024-06-01 00:04:40] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-06-01 00:04:40] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-06-01 00:04:40] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 3
+[2024-06-01 00:04:40] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 4
+[2024-06-01 00:05:28] [ INFO ] [PacienteDAOH2:21] inciando las operaciones de guardado de : LIA
+[2024-06-01 00:05:28] [ INFO ] [DomicilioDAOH2:20] iniciando las operaciones de guardado de un domicilio con id: null
+[2024-06-01 00:05:28] [ INFO ] [DomicilioDAOH2:34] domicilio guardado
+[2024-06-01 00:05:28] [ INFO ] [PacienteDAOH2:39] paciente guardado con exito
+[2024-06-01 00:05:35] [ INFO ] [PacienteDAOH2:115] iniciando las operaciones de busqueda:
+[2024-06-01 00:05:35] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-06-01 00:05:35] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-06-01 00:05:35] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 3
+[2024-06-01 00:05:35] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 4
+[2024-06-01 00:05:35] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 5
+[2024-06-01 00:06:31] [ INFO ] [PacienteDAOH2:50] iniciando la operacion de buscado de un paciente con id : 3
+[2024-06-01 00:06:31] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 3
+[2024-06-01 00:06:31] [ INFO ] [OdontologoDAOH2:44] iniciando las operaciones de Busqueda por ID: 
+[2024-06-01 00:06:31] [ INFO ] [TurnoDAOLISTA:15] iniciando las operaciones de guardado de un turno
+[2024-06-01 00:06:31] [ INFO ] [PacienteDAOH2:50] iniciando la operacion de buscado de un paciente con id : 3
+[2024-06-01 00:06:31] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 3
+[2024-06-01 00:06:31] [ INFO ] [OdontologoDAOH2:44] iniciando las operaciones de Busqueda por ID: 
+[2024-06-01 00:06:31] [ INFO ] [TurnoDAOLISTA:23] turno guardado con exito
+[2024-06-01 00:06:36] [ INFO ] [TurnoDAOLISTA:52] iniciando las operacion de mostrar todos los turnos
+[2024-06-01 00:07:33] [ INFO ] [BD:34] tabla creada con exito
+[2024-06-01 00:07:46] [ INFO ] [PacienteDAOH2:115] iniciando las operaciones de busqueda:
+[2024-06-01 00:07:46] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-06-01 00:07:46] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-06-01 00:08:10] [ INFO ] [PacienteDAOH2:21] inciando las operaciones de guardado de : LIA
+[2024-06-01 00:08:10] [ INFO ] [DomicilioDAOH2:20] iniciando las operaciones de guardado de un domicilio con id: null
+[2024-06-01 00:08:10] [ INFO ] [DomicilioDAOH2:34] domicilio guardado
+[2024-06-01 00:08:10] [ INFO ] [PacienteDAOH2:39] paciente guardado con exito
+[2024-06-01 00:08:16] [ INFO ] [PacienteDAOH2:115] iniciando las operaciones de busqueda:
+[2024-06-01 00:08:16] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-06-01 00:08:16] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-06-01 00:08:16] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 3
+[2024-06-01 00:08:25] [ INFO ] [PacienteDAOH2:50] iniciando la operacion de buscado de un paciente con id : 1
+[2024-06-01 00:08:25] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-06-01 00:08:25] [ WARN ] [PacienteDAOH2:75] iniciando las operaciones de eliminación de un paciente con id : 1
+[2024-06-01 00:08:29] [ INFO ] [PacienteDAOH2:115] iniciando las operaciones de busqueda:
+[2024-06-01 00:08:29] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-06-01 00:08:29] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 3
+[2024-06-01 00:12:10] [ INFO ] [PacienteDAOH2:115] iniciando las operaciones de busqueda:
+[2024-06-01 00:12:10] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-06-01 00:12:10] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 3
+[2024-06-01 00:12:21] [ INFO ] [PacienteDAOH2:50] iniciando la operacion de buscado de un paciente con id : 2
+[2024-06-01 00:12:21] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-06-01 00:12:21] [ WARN ] [PacienteDAOH2:75] iniciando las operaciones de eliminación de un paciente con id : 2
+[2024-06-01 00:12:25] [ INFO ] [PacienteDAOH2:115] iniciando las operaciones de busqueda:
+[2024-06-01 00:12:25] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 3
+[2024-06-01 00:20:58] [ INFO ] [BD:34] tabla creada con exito
+[2024-06-01 00:21:32] [ INFO ] [BD:34] tabla creada con exito
+[2024-06-01 00:22:49] [ INFO ] [BD:34] tabla creada con exito
+[2024-06-01 00:23:38] [ INFO ] [OdontologoDAOH2:99] iniciando las operaciones de:  listado de todos los odontologos
+[2024-06-01 00:23:43] [ INFO ] [OdontologoDAOH2:99] iniciando las operaciones de:  listado de todos los odontologos
+[2024-06-01 00:23:55] [ INFO ] [OdontologoDAOH2:23] iniciando las operaciones de: guardado de :  121212
+[2024-06-01 00:24:02] [ INFO ] [OdontologoDAOH2:99] iniciando las operaciones de:  listado de todos los odontologos
+[2024-06-01 00:24:32] [ INFO ] [OdontologoDAOH2:45] iniciando las operaciones de Busqueda por ID: 
+[2024-06-01 00:24:32] [ WARN ] [OdontologoDAOH2:67] iniciando las operaciones de eliminación de un odontologo con id : 3
+[2024-06-01 00:24:37] [ INFO ] [OdontologoDAOH2:99] iniciando las operaciones de:  listado de todos los odontologos
+[2024-06-01 00:24:44] [ INFO ] [OdontologoDAOH2:45] iniciando las operaciones de Busqueda por ID: 
+[2024-06-01 00:24:44] [ WARN ] [OdontologoDAOH2:67] iniciando las operaciones de eliminación de un odontologo con id : 2
+[2024-06-01 00:24:47] [ INFO ] [OdontologoDAOH2:99] iniciando las operaciones de:  listado de todos los odontologos
+[2024-06-01 00:31:27] [ INFO ] [BD:34] tabla creada con exito
+[2024-06-01 00:31:46] [ INFO ] [PacienteDAOH2:50] iniciando la operacion de buscado de un paciente con id : 1
+[2024-06-01 00:31:46] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-06-01 00:31:46] [ INFO ] [OdontologoDAOH2:45] iniciando las operaciones de Busqueda por ID: 
+[2024-06-01 00:31:46] [ INFO ] [TurnoDAOLISTA:15] iniciando las operaciones de guardado de un turno
+[2024-06-01 00:31:46] [ INFO ] [PacienteDAOH2:50] iniciando la operacion de buscado de un paciente con id : 1
+[2024-06-01 00:31:46] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 1
+[2024-06-01 00:31:46] [ INFO ] [OdontologoDAOH2:45] iniciando las operaciones de Busqueda por ID: 
+[2024-06-01 00:31:46] [ INFO ] [TurnoDAOLISTA:23] turno guardado con exito
+[2024-06-01 00:31:55] [ INFO ] [PacienteDAOH2:50] iniciando la operacion de buscado de un paciente con id : 2
+[2024-06-01 00:31:55] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-06-01 00:31:55] [ INFO ] [OdontologoDAOH2:45] iniciando las operaciones de Busqueda por ID: 
+[2024-06-01 00:31:55] [ INFO ] [TurnoDAOLISTA:15] iniciando las operaciones de guardado de un turno
+[2024-06-01 00:31:55] [ INFO ] [PacienteDAOH2:50] iniciando la operacion de buscado de un paciente con id : 2
+[2024-06-01 00:31:55] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-06-01 00:31:55] [ INFO ] [OdontologoDAOH2:45] iniciando las operaciones de Busqueda por ID: 
+[2024-06-01 00:31:55] [ INFO ] [TurnoDAOLISTA:23] turno guardado con exito
+[2024-06-01 00:32:07] [ INFO ] [PacienteDAOH2:50] iniciando la operacion de buscado de un paciente con id : 2
+[2024-06-01 00:32:07] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-06-01 00:32:07] [ INFO ] [OdontologoDAOH2:45] iniciando las operaciones de Busqueda por ID: 
+[2024-06-01 00:32:07] [ INFO ] [TurnoDAOLISTA:15] iniciando las operaciones de guardado de un turno
+[2024-06-01 00:32:07] [ INFO ] [PacienteDAOH2:50] iniciando la operacion de buscado de un paciente con id : 2
+[2024-06-01 00:32:07] [ INFO ] [DomicilioDAOH2:45] iniciando la busqueda de un domicilio con id: 2
+[2024-06-01 00:32:07] [ INFO ] [OdontologoDAOH2:45] iniciando las operaciones de Busqueda por ID: 
+[2024-06-01 00:32:07] [ INFO ] [TurnoDAOLISTA:23] turno guardado con exito
+[2024-06-01 00:32:12] [ INFO ] [TurnoDAOLISTA:59] iniciando las operacion de mostrar todos los turnos
+[2024-06-01 00:32:29] [ INFO ] [TurnoDAOLISTA:42] iniciando las operaciones de eliminar el turno: 1
+[2024-06-01 00:32:36] [ INFO ] [TurnoDAOLISTA:59] iniciando las operacion de mostrar todos los turnos
+[2024-06-01 00:32:45] [ INFO ] [TurnoDAOLISTA:42] iniciando las operaciones de eliminar el turno: 2
+[2024-06-01 00:32:49] [ INFO ] [TurnoDAOLISTA:59] iniciando las operacion de mostrar todos los turnos

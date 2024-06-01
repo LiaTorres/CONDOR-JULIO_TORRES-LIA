@@ -15,6 +15,7 @@ public class PacienteDAOH2 implements iDao<Paciente> {
     private static final String SQL_SELECT_ALL="SELECT * FROM PACIENTES";
     private static final String SQL_SELECT_BY_EMAIL="SELECT * FROM PACIENTES WHERE EMAIL=?";
     private static final String SQL_UPDATE="UPDATE PACIENTES SET NOMBRE=?, APELLIDO=?, CEDULA=?, FECHA_INGRESO=?, DOMICILIO_ID=?, EMAIL=? WHERE ID=?";
+    private static final String SQL_DELETE_BY_ID="DELETE  FROM PACIENTES WHERE ID=?";
     @Override
     public Paciente guardar(Paciente paciente) {
         logger.info("inciando las operaciones de guardado de : "+paciente.getNombre());

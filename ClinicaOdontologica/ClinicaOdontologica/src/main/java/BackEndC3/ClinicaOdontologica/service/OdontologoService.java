@@ -22,4 +22,14 @@ public class OdontologoService {
     public Odontologo crearOdontologos(Odontologo odontologo){
         return odontologoiDao.guardar(odontologo);
     }
+    public String odontologoAEliminar(Odontologo paciente){
+        try{
+            odontologoiDao.eliminar(paciente.getId());
+            return "El Odontologo fue eliminado con éxito";
+
+        }catch (Exception e){
+            return "Error al eliminar odontologo";
+        }
+
+    }
 }

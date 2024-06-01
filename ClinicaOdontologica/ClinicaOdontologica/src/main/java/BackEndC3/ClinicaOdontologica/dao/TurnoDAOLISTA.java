@@ -38,9 +38,16 @@ public class TurnoDAOLISTA implements iDao<Turno>{
     }
 
     @Override
-    public void eliminar(Integer id) {
+    public void eliminar(Integer id)  {
+        logger.info("iniciando las operaciones de eliminar el turno: " + id);
 
+        Turno turnoPorEliminar = this.buscarPorId(id);
+        if (turnoPorEliminar == null){
+            return;
+        }
+        this.turnos.remove(this.buscarPorId(id));
     }
+
 
     @Override
     public void actualizar(Turno turno) {

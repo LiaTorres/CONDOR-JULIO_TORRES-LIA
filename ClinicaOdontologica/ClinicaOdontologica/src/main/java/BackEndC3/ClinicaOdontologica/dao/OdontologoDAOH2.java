@@ -16,6 +16,7 @@ public class OdontologoDAOH2 implements iDao<Odontologo>{
     private static final String SQL_UPDATE="UPDATE ODONTOLOGOS SET MATRICULA=?, NOMBRE=?, APELLIDO=? WHERE ID=?";
     private static final String SQL_SELECT_ALL="SELECT * FROM ODONTOLOGOS";
     private static final String SQL_SELECT_BY_MATRICULA="SELECT * ODONTOLOGOS WHERE MATRICULA=?";
+    private static final String SQL_DELETE_BY_ID="DELETE  FROM ODONTOLOGOS WHERE ID=?";
 
     @Override
     public Odontologo guardar(Odontologo odontologo) {
@@ -63,15 +64,17 @@ public class OdontologoDAOH2 implements iDao<Odontologo>{
 
     @Override
     public void eliminar(Integer id) {
-        logger.info("iniciando las operaciones de: ");
+        logger.warn("iniciando las operaciones de eliminación de un odontologo con id : "+ id);
         Connection connection= null;
         try{
             connection= BD.getConnection();
+            PreparedStatement ps= connection.prepareStatement(SQL_DELETE_BY_ID);
+            ps.setInt(1,id);
+            ps.execute();
 
         }catch (Exception e){
             logger.error(e.getMessage());
         }
-
     }
 
     @Override

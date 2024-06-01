@@ -1,7 +1,6 @@
 package BackEndC3.ClinicaOdontologica.controller;
 
 import BackEndC3.ClinicaOdontologica.model.Odontologo;
-import BackEndC3.ClinicaOdontologica.model.Paciente;
 import BackEndC3.ClinicaOdontologica.service.OdontologoService;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,5 +40,13 @@ public class OdontologoController {
  public Odontologo buscarPorID(@PathVariable Integer id){
         return odontologoService.buscarPorID(id);
     }
-
+    @DeleteMapping("/{id}")
+    public String odontologoAEliminar(@PathVariable Integer id) {
+        Odontologo odontologoConsultado = odontologoService.buscarPorID(id);
+        if (odontologoConsultado != null) {
+            return odontologoService.odontologoAEliminar(odontologoConsultado);
+        } else {
+            return "Odontologo no encontrado";
+        }
+    }
 }

@@ -45,4 +45,13 @@ public class TurnoController {
     public ResponseEntity<List<Turno>> buscarTodos(){
         return ResponseEntity.ok(turnoService.buscarTodos());
     }
+    @DeleteMapping("/{id}")
+    public String turnoAEliminar(@PathVariable Integer id) {
+        Turno turnoConsultado = turnoService.buscarPorId(id);
+        if (turnoConsultado != null) {
+            return turnoService.turnoAEliminar(turnoConsultado);
+        } else {
+            return "Paciente no encontrado";
+        }
+    }
 }
