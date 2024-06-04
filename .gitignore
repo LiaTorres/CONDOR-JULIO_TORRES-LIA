@@ -20,6 +20,10 @@ target/
 *.iws
 *.iml
 *.ipr
+*.log
+/*.log
+**/.log
+**/*.log
 
 
 
@@ -37,5 +41,7 @@ build/
 .vscode/
 
 node_modules
-/cambios.log
-cambios.log
+./CONDOR-JULIO_TORRES-LIA/ClinicaOdontologica/ClinicaOdontologica/cambios.log
+/ClinicaOdontologica/ClinicaOdontologica/cambios.log
+ClinicaOdontologica/ClinicaOdontologica/cambios.log
+
