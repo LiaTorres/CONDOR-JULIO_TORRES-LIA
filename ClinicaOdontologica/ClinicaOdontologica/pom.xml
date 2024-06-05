@@ -50,6 +50,19 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.7theta/tailwind -->
+		<dependency>
+			<groupId>com.7theta</groupId>
+			<artifactId>tailwind</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.mvnpm/daisyui -->
+		<dependency>
+			<groupId>org.mvnpm</groupId>
+			<artifactId>daisyui</artifactId>
+			<version>4.11.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
