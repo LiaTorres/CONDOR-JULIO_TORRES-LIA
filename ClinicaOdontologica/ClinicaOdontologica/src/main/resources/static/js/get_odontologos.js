@@ -8,8 +8,8 @@ window.addEventListener("load", function () {
     fetch(url, settings)
       .then((response) => response.json())
       .then((data) => {
-        for (odontologo of data) {
-          var table = document.getElementById("odontologoTableBody");
+        for (let odontologo of data) {
+          var table = document.getElementById("odontologoTableBody"); // Asegúrate de que este ID exista en tu HTML
           var odontologoRow = table.insertRow();
           let tr_id = odontologo.id;
           odontologoRow.id = tr_id;
@@ -44,13 +44,13 @@ window.addEventListener("load", function () {
             "<td>" +
             odontologo.id +
             "</td>" +
-            '<td class="td_matricula">' +
+            '<td>' +
             odontologo.matricula.toUpperCase() +
             "</td>" +
-            '<td class="td_nombre">' +
+            '<td>' +
             odontologo.nombre.toUpperCase() +
             "</td>" +
-            '<td class="td_apellido">' +
+            '<td>' +
             odontologo.apellido.toUpperCase() +
             "</td>" +
             "<td>" +
@@ -58,13 +58,9 @@ window.addEventListener("load", function () {
             deleteButton +
             "</td>";
         }
-      });
-  })(function () {
-    let pathname = window.location.pathname;
-    if (pathname == "/get_odontologos.html") {
-      document.querySelector(".nav .nav-item a:last").addClass("active");
-    }
-  });
+      })
+      .catch((error) => console.error('Error al obtener los odontólogos:', error));
+  })();
 
   // Manejo del modal de confirmación
   const confirmDeleteModal = document.getElementById('confirmDeleteModal');

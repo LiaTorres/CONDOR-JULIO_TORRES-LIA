@@ -14,29 +14,28 @@
     <nav class="mb-1 h-20" id="navbar-container">
     </nav>
 
-    <div class="container mt-5">
-        <h1>Agregar Turno</h1>
+    <h1 class="text-5xl font-bold text-center">Agregar Turno</h1>
 
-        <!-- Formulario para agregar turnos -->
-        <div>
-            <form id="addTurnoForm">
-                <div class="form-group">
-                    <label>ID Paciente:</label>
-                    <input type="number" class="form-control" id="turnoPacienteId" required>
-                </div>
-                <div class="form-group">
-                    <label>ID Odontólogo:</label>
-                    <input type="number" class="form-control" id="turnoOdontologoId" required>
-                </div>
-                <div class="form-group">
-                    <label>Fecha:</label>
-                    <input type="date" class="form-control" id="turnoFecha" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Agregar Turno</button>
+    <!-- Formulario para agregar turnos -->
+    <main class="mt-8">
+        <div class="max-w-2xl mx-auto rounded-md overflow-hidden">
+            <form id="addTurnoForm" class=" p-2 flex gap-6 flex-col">
+                <label class="input input-bordered flex items-center gap-2">
+                    ID Paciente:
+                    <input id="turnoPacienteId" type="number" class="grow" placeholder="123" required />
+                </label>
+                <label class="input input-bordered flex items-center gap-2">
+                    ID Odontologo:
+                    <input id="turnoOdontologoId" type="number" class="grow" placeholder="123" required />
+                </label>
+                <label class="input input-bordered flex items-center gap-2">
+                    <input type="date" id="turnoFecha" class="grow" placeholder="Fecha" required />
+                </label>
+                <button type="submit" class="btn btn-primary max-w-sm sm:px-24 mx-auto">Agregar Turno</button>
             </form>
         </div>
 
-    </div>
+    </main>
     <script type="text/javascript" src="js/base.js"></script>
 
 </body>

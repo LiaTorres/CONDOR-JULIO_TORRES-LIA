@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html data-theme="night" lang="es">
+
 <head>
     <title>Agregar Odontologos</title>
     <meta charset="utf-8">
@@ -8,32 +9,40 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="text/javascript" src="js/post_odontologos.js"></script>
 </head>
+
 <body>
     <nav class="mb-1 h-20" id="navbar-container">
     </nav>
-<div class="container mt-5">
-    <h1>Agregar Odontologo</h1>
+    <div class="divider"></div>
 
-    <!-- Formulario para agregar odontólogos -->
-    <div>
-        <form id="addOdontologoForm">
-            <div class="form-group">
-                <label>Matrícula:</label>
-                <input type="text" class="form-control" id="odontologoMatricula" required>
-            </div>
-            <div class="form-group">
-                <label>Nombre:</label>
-                <input type="text" class="form-control" id="odontologoNombre" required>
-            </div>
-            <div class="form-group">
-                <label>Apellido:</label>
-                <input type="text" class="form-control" id="odontologoApellido" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Agregar Odontólogo</button>
-        </form>
-    </div>
+    <h1 class="text-5xl font-bold text-center">Agregar Odontologo</h1>
 
-</div>
-<script type="text/javascript" src="js/base.js"></script>
+
+    <main class="my-8">
+        <div class="max-w-2xl mx-auto rounded-md overflow-hidden">
+            <form id="addOdontologoForm" class=" p-2 flex gap-5 flex-col">
+
+                <label class="input input-bordered flex items-center gap-2">
+                    Matrícula:
+                    <input id="odontologoMatricula" type="text" placeholder="0980007" required />
+                </label>
+
+                <label class="input input-bordered flex items-center gap-2">
+                    Nombre:
+                    <input id="odontologoNombre" type="text" placeholder="Juanito" required />
+                </label>
+
+                <label class="input input-bordered flex items-center gap-2">
+                    Apellido:
+                    <input id="odontologoApellido" type="text" placeholder="Maraña" required />
+                </label>
+
+                <button type="submit" class="btn btn-primary my-2 max-w-sm sm:px-24 mx-auto">Agregar Odontólogo</button>
+            </form>
+        </div>
+    </main>
+
+    <script type="text/javascript" src="js/base.js"></script>
 </body>
+
 </html>

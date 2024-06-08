@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html data-theme="night" lang="es">
+
 <head>
     <title>Agregar Pacientes</title>
     <meta charset="utf-8">
@@ -8,44 +9,55 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="text/javascript" src="/js/post_pacientes.js"></script>
 </head>
+
 <body>
     <nav class="mb-1 h-20" id="navbar-container">
     </nav>
-<div class="container mt-5">
-    <h1>Agregar Paciente</h1>
 
-    <!-- Formulario para agregar pacientes -->
-    <div>
-        <form id="addPacienteForm">
-            <div class="form-group">
-                <label>Nombre:</label>
-                <input type="text" class="form-control" id="pacienteNombre" required>
-            </div>
-            <div class="form-group">
-                <label>Apellido:</label>
-                <input type="text" class="form-control" id="pacienteApellido" required>
-            </div>
-            <div class="form-group">
-                <label>Cédula:</label>
-                <input type="text" class="form-control" id="pacienteCedula" required>
-            </div>
-            <div class="form-group">
-                <label>Fecha de Ingreso:</label>
-                <input type="date" class="form-control" id="pacienteFechaIngreso" required>
-            </div>
-            <div class="form-group">
-                <label>Email:</label>
-                <input type="email" class="form-control" id="pacienteEmail" required>
-            </div>
-            <div class="form-group">
-                <label>Domicilio:</label>
-                <input type="text" class="form-control" id="pacienteDomicilio" placeholder="Calle, Número, Localidad, Provincia" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Agregar Paciente</button>
-        </form>
-    </div>
+    <div class="divider"></div>
 
-</div>
-<script type="text/javascript" src="js/base.js"></script>
+    <h1 class="text-5xl font-bold text-center">Agregar Paciente</h1>
+
+    <main class="my-4">
+        <div class="max-w-2xl mx-auto rounded-md overflow-hidden">
+            <form id="addPacienteForm" class=" p-2 flex gap-3  flex-col">
+
+                <label class="input input-bordered flex items-center gap-2">
+                    Nombre:
+                    <input id="pacienteNombre" type="text" placeholder="Juan Carlos" required />
+                </label>
+
+                <label class="input input-bordered flex items-center gap-2">
+                    Apellido:
+                    <input id="pacienteApellido" type="text" placeholder="Bodoque" required />
+                </label>
+
+                <label class="input input-bordered flex items-center gap-2">
+                    Cédula:
+                    <input id="pacienteCedula" type="text" placeholder="098742546" required />
+                </label>
+
+                <label class="input input-bordered flex items-center gap-2">
+                    Fecha de Ingreso:
+                    <input id="pacienteFechaIngreso" type="date" placeholder="19-06-2002" required />
+                </label>
+
+                <label class="input input-bordered flex items-center gap-2">
+                    Email:
+                    <input id="pacienteEmail" type="text" placeholder="juanCb@juan.es" required />
+                </label>
+
+                <label class="input input-bordered flex items-center gap-2">
+                    Email:
+                    <input id="pacienteDomicilio" type="text" placeholder="Av.Street, 134, Michigan, Ohio" required />
+                </label>
+
+                <button type="submit" class="btn btn-primary my-2 max-w-sm sm:px-24 mx-auto">Agregar Paciente</button>
+            </form>
+        </div>
+    </main>
+
+    <script type="text/javascript" src="js/base.js"></script>
 </body>
+
 </html>

@@ -91,3 +91,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const navbarContainer = document.getElementById("navbar-container");
   navbarContainer.innerHTML = navbarHTML;
 });
+
+document.addEventListener("load", function () {
+  // Obtiene todas las cookies del documento
+  const cookies = document.cookie.split(";");
+
+  // Itera sobre todas las cookies y las establece con una fecha de expiración pasada (para eliminarlas)
+  cookies.forEach(function (cookie) {
+    const cookieParts = cookie.split("=");
+    const cookieName = cookieParts[0].trim();
+    document.cookie =
+      cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  });
+
+  console.log("Cookies reseteadas correctamente.");
+});
