@@ -1,54 +1,29 @@
 package BackEndC3.ClinicaOdontologica.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDate;
 
+@Getter
+@Setter
 public class Turno {
-    private int id;
+    private Integer id;
     private Paciente paciente;
     private Odontologo odontologo;
     private LocalDate fecha;
 
-    public Turno(int id, Paciente paciente, Odontologo odontologo, LocalDate fecha) {
+    public Turno(Integer id, LocalDate fecha, Odontologo odontologo, Paciente paciente) {
         this.id = id;
-        this.paciente = paciente;
-        this.odontologo = odontologo;
         this.fecha = fecha;
+        this.odontologo = odontologo;
+        this.paciente = paciente;
     }
+
 
     public Turno() {
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Paciente getPaciente() {
-        return paciente;
-    }
-
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
-    }
-
-    public Odontologo getOdontologo() {
-        return odontologo;
-    }
-
-    public void setOdontologo(Odontologo odontologo) {
-        this.odontologo = odontologo;
-    }
-
-    public LocalDate getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
-    }
 
     @Override
     public String toString() {

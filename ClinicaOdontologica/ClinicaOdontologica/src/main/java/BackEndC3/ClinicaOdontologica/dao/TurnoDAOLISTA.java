@@ -5,20 +5,19 @@ import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
-public class TurnoDAOLISTA implements iDao<Turno>{
-    private Logger logger= Logger.getLogger(TurnoDAOLISTA.class);
-    private List<Turno> turnos= new ArrayList<>();
+public class TurnoDAOLISTA implements iDao<Turno> {
+    private Logger logger = Logger.getLogger(TurnoDAOLISTA.class);
+    private List<Turno> turnos = new ArrayList<>();
+
     @Override
     public Turno guardar(Turno turno) {
         logger.info("iniciando las operaciones de guardado de un turno");
-        PacienteDAOH2 pacienteDAOH2= new PacienteDAOH2();
-        OdontologoDAOH2 odontologoDAOH2= new OdontologoDAOH2();
+        PacienteDAOH2 pacienteDAOH2 = new PacienteDAOH2();
+        OdontologoDAOH2 odontologoDAOH2 = new OdontologoDAOH2();
         turno.setPaciente(pacienteDAOH2.buscarPorId(turno.getPaciente().getId()));
         turno.setOdontologo(odontologoDAOH2.buscarPorId(turno.getOdontologo().getId()));
-//        UUID uuid = UUID.randomUUID();
-        turno.setId(turnos.size()+1);
+        turno.setId(turnos.size() + 1);
         turnos.add(turno);
         logger.info("turno guardado con exito");
         return turno;
@@ -27,9 +26,9 @@ public class TurnoDAOLISTA implements iDao<Turno>{
     @Override
     public Turno buscarPorId(Integer id) {
         for (Turno turno : turnos) {
-            if(turno.getId().equals(id)){
+            if (turno.getId().equals(id)) {
                 return turno;
-            }else{
+            } else {
                 System.out.println("turno no encontrado");
             }
 
@@ -38,16 +37,15 @@ public class TurnoDAOLISTA implements iDao<Turno>{
     }
 
     @Override
-    public void eliminar(Integer id)  {
+    public void eliminar(Integer id) {
         logger.info("iniciando las operaciones de eliminar el turno: " + id);
 
         Turno turnoPorEliminar = this.buscarPorId(id);
-        if (turnoPorEliminar == null){
+        if (turnoPorEliminar == null) {
             return;
         }
         this.turnos.remove(this.buscarPorId(id));
     }
-
 
     @Override
     public void actualizar(Turno turno) {

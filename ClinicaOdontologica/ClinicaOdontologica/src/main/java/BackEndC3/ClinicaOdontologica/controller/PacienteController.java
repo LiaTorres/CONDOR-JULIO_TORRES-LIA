@@ -23,7 +23,7 @@ public class PacienteController {
         return listaPacientes;
     }
 
-    @PostMapping //--> nos permite persistir los datos que vienen desde la vista
+    @PostMapping 
     public Paciente guardarPaciente(@RequestBody Paciente paciente) {
         return pacienteService.guardarPaciente(paciente);
     }

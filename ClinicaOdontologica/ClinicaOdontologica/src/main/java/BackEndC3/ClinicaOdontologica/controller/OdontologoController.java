@@ -12,34 +12,37 @@ public class OdontologoController {
     private OdontologoService odontologoService;
 
     public OdontologoController() {
-      odontologoService=new OdontologoService();
+        odontologoService = new OdontologoService();
     }
 
- @GetMapping
+    @GetMapping
     public List<Odontologo> odontologoList() {
-     List<Odontologo> listaOdontogos = odontologoService.buscarOdontologos();
-     return listaOdontogos;
- }
- @PostMapping
-    public Odontologo crearOdontologos(@RequestBody Odontologo odontologo){
-        return odontologoService.crearOdontologos(odontologo);
- }
-    @PutMapping
-    public String actualizarOdontologo(@RequestBody Odontologo odontologo){
+        List<Odontologo> listaOdontogos = odontologoService.buscarOdontologos();
+        return listaOdontogos;
+    }
 
-        Odontologo odontologoId= odontologoService.buscarPorID(odontologo.getId());
-        if(odontologoId!=null){
+    @PostMapping
+    public Odontologo crearOdontologos(@RequestBody Odontologo odontologo) {
+        return odontologoService.crearOdontologos(odontologo);
+    }
+
+    @PutMapping
+    public String actualizarOdontologo(@RequestBody Odontologo odontologo) {
+        Odontologo odontologoId = odontologoService.buscarPorID(odontologo.getId());
+        if (odontologoId != null) {
             odontologoService.actualizarOdontologo(odontologo);
             return "Odontologo actualizado con exito";
-        }else{
+        } else {
             return "Odontologo no encontrado";
         }
 
     }
- @GetMapping("/{id}")
- public Odontologo buscarPorID(@PathVariable Integer id){
+
+    @GetMapping("/{id}")
+    public Odontologo buscarPorID(@PathVariable Integer id) {
         return odontologoService.buscarPorID(id);
     }
+
     @DeleteMapping("/{id}")
     public String odontologoAEliminar(@PathVariable Integer id) {
         Odontologo odontologoConsultado = odontologoService.buscarPorID(id);

@@ -1,4 +1,5 @@
 package BackEndC3.ClinicaOdontologica.model;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +10,6 @@ public class Odontologo {
     private String matricula;
     private String nombre;
     private String apellido;
-
 
     public Odontologo(Integer id, String matricula, String nombre, String apellido) {
         this.id = id;

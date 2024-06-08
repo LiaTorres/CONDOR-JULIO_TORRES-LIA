@@ -1,7 +1,5 @@
 package BackEndC3.ClinicaOdontologica.controller;
 
-import BackEndC3.ClinicaOdontologica.dao.OdontologoDAOH2;
-import BackEndC3.ClinicaOdontologica.dao.PacienteDAOH2;
 import BackEndC3.ClinicaOdontologica.model.Odontologo;
 import BackEndC3.ClinicaOdontologica.model.Paciente;
 import BackEndC3.ClinicaOdontologica.model.Turno;
@@ -21,30 +19,33 @@ public class TurnoController {
     private OdontologoService odontologoService;
 
     public TurnoController() {
-        turnoService= new TurnoService();
-        pacienteService= new PacienteService();
-        odontologoService= new OdontologoService();
+        turnoService = new TurnoService();
+        pacienteService = new PacienteService();
+        odontologoService = new OdontologoService();
     }
 
     @PostMapping
-    public ResponseEntity<Turno> guardarTurno(@RequestBody Turno turno){
-        Paciente pacienteBuscado= pacienteService.buscarPorID(turno.getPaciente().getId());
-        Odontologo odontologoBuscado= odontologoService.buscarPorID(turno.getOdontologo().getId());
-        if(pacienteBuscado!=null&&odontologoBuscado!=null){
+    public ResponseEntity<Turno> guardarTurno(@RequestBody Turno turno) {
+        Paciente pacienteBuscado = pacienteService.buscarPorID(turno.getPaciente().getId());
+        Odontologo odontologoBuscado = odontologoService.buscarPorID(turno.getOdontologo().getId());
+        if (pacienteBuscado != null && odontologoBuscado != null) {
             return ResponseEntity.ok(turnoService.guardarTurno(turno));
-        }else{
+        } else {
             return ResponseEntity.badRequest().build();
         }
 
     }
+
     @GetMapping("/{id}")
-    public Turno buscarPorID(@PathVariable Integer id){
+    public Turno buscarPorID(@PathVariable Integer id) {
         return turnoService.buscarPorId(id);
     }
+
     @GetMapping
-    public ResponseEntity<List<Turno>> buscarTodos(){
+    public ResponseEntity<List<Turno>> buscarTodos() {
         return ResponseEntity.ok(turnoService.buscarTodos());
     }
+
     @DeleteMapping("/{id}")
     public String turnoAEliminar(@PathVariable Integer id) {
         Turno turnoConsultado = turnoService.buscarPorId(id);
