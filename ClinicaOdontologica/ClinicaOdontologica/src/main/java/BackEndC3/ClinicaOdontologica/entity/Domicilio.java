@@ -7,6 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+@Embeddable
 @Table(name = "domicilios")
 
 public class Domicilio {
@@ -22,16 +23,16 @@ public class Domicilio {
     @Column
     private String provincia;
 
-    public Domicilio(Integer id, String calle, Integer numero, String localidad, String provincia) {
-        this.id = id;
-        this.calle = calle;
-        this.numero = numero;
-        this.localidad = localidad;
-        this.provincia = provincia;
-    }
-
-    public Domicilio() {
-    }
+//    public Domicilio(Integer id, String calle, Integer numero, String localidad, String provincia) {
+//        this.id = id;
+//        this.calle = calle;
+//        this.numero = numero;
+//        this.localidad = localidad;
+//        this.provincia = provincia;
+//    }
+//
+//    public Domicilio() {
+//    }
 
     @Override
     public String toString() {

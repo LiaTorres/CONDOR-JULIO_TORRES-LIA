@@ -23,6 +23,7 @@ public class Paciente {
     private String cedula;
     @Column
     private LocalDate fechaIngreso;
+    @Embedded
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "domicilio_id", referencedColumnName = "id")
     @PrimaryKeyJoinColumn
