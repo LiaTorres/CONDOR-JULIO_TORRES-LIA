@@ -7,28 +7,42 @@ function crearNavbar() {
         </div>
         <div class="navbar-center hidden sm:flex gap-4">
             <div class="dropdown dropdown-hover">
-                <div tabindex="0" role="button" class="btn btn-secondary m-1">Pacientes</div>
-                <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                <div tabindex="0" role="button" class="btn btn-secondary m-1">
+                Pacientes
+                <span class="rotate-90">
+                        &#10097;
+                    </span>
+                </div>
+                <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-neutral rounded-box w-52">
                     <li><a href="post_pacientes.html">Agregar</a></li>
                     <li><a href="get_pacientes.html">Listar</a></li>
 
                 </ul>
             </div>
             <div class="dropdown dropdown-hover">
-                <div tabindex="0" role="button" class="btn btn-secondary m-1">Odontologos</div>
-                <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                <div tabindex="0" role="button" class="btn btn-secondary m-1">
+                Odontologos
+                <span class="rotate-90">
+                        &#10097;
+                    </span>
+                </div>
+                <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-neutral rounded-box w-52">
                     <li><a href="post_odontologos.html">Agregar</a></li>
                     <li><a href="get_odontologos.html">Listar</a></li>
                 </ul>
             </div>
             <div class="dropdown dropdown-hover">
-                <div tabindex="0" role="button" class="btn btn-secondary m-1">Turnos</div>
-                <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                <div tabindex="0" role="button" class="btn btn-secondary m-1">
+                Turnos
+                <span class="rotate-90">
+                        &#10097;
+                    </span>
+                </div>
+                <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-neutral rounded-box w-52">
                     <li><a href="post_turnos.html">Agregar</a></li>
                     <li><a href="get_turnos.html">Listar</a></li>
                 </ul>
             </div>
-
         </div>
 
         <div class="navbar-end">
