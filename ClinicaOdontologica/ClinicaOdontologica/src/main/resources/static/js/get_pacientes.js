@@ -46,37 +46,52 @@ window.addEventListener("load", function () {
 
           // Armamos cada columna de la fila
           pacienteRow.innerHTML =
-            '<td>' + paciente.id + "</td>" + 
-            '<td>' + paciente.nombre.toUpperCase() + "</td>" +
-            '<td>' + paciente.apellido.toUpperCase() + "</td>" +
-            '<td>' + paciente.cedula.toUpperCase() + "</td>" +
-            '<td>' +
+            "<td>" +
+            paciente.id +
+            "</td>" +
+            "<td>" +
+            paciente.nombre.toUpperCase() +
+            "</td>" +
+            "<td>" +
+            paciente.apellido.toUpperCase() +
+            "</td>" +
+            "<td>" +
+            paciente.cedula.toUpperCase() +
+            "</td>" +
+            "<td>" +
             paciente.domicilio.calle +
-            " " +
+            ", " +
             paciente.domicilio.numero +
             ", " +
             paciente.domicilio.localidad +
             ", " +
             paciente.domicilio.provincia +
             "</td>" +
-            '<td>' + paciente.email.toUpperCase() + "</td>" +
-            "<td>" + updateButton + deleteButton + "</td>";
+            "<td>" +
+            paciente.email.toUpperCase() +
+            "</td>" +
+            "<td>" +
+            updateButton +
+            deleteButton +
+            "</td>";
         }
       })
-      .catch((error) => console.error('Error al obtener los pacientes:', error));
+      .catch((error) =>
+        console.error("Error al obtener los pacientes:", error)
+      );
   })();
 
   // Manejo del modal de confirmación
-  const confirmDeleteModal = document.getElementById('confirmDeleteModal');
-  const confirmDeleteButton = document.getElementById('confirmDeleteButton');
-  const cancelDeleteButton = document.getElementById('cancelDeleteButton');
+  const confirmDeleteModal = document.getElementById("confirmDeleteModal");
+  const confirmDeleteButton = document.getElementById("confirmDeleteButton");
+  const cancelDeleteButton = document.getElementById("cancelDeleteButton");
   let pacienteIdToDelete = null; // Para almacenar el ID del paciente a eliminar
 
-  cancelDeleteButton.addEventListener('click', () => {
+  cancelDeleteButton.addEventListener("click", () => {
     confirmDeleteModal.close();
   });
 
-  confirmDeleteButton.addEventListener('click', () => {
+  confirmDeleteButton.addEventListener("click", () => {
     if (pacienteIdToDelete !== null) {
       deletePaciente(pacienteIdToDelete);
       confirmDeleteModal.close();
@@ -100,10 +115,10 @@ window.addEventListener("load", function () {
       if (response.ok) {
         console.log(`Paciente con ID ${id} eliminado.`);
         document.getElementById(id).remove(); // Eliminar la fila de la tabla
-        showAlert('Paciente eliminado exitosamente');
+        showAlert("Paciente eliminado exitosamente");
       } else {
         console.error(`Error al eliminar paciente con ID ${id}.`);
-        showAlert('Error al eliminar el paciente', 'error');
+        showAlert("Error al eliminar el paciente", "error");
       }
     });
   }
@@ -112,6 +127,22 @@ window.addEventListener("load", function () {
   window.deleteBy = function (id) {
     showDeleteModal(id);
   };
+
+  // Manejo del modal de confirmación
+  const updateModal = document.getElementById("updateModal");
+  const updateCancelButton = document.getElementById("updateCancelButton");
+
+  // Función para mostrar el modal
+  function showUpdateModal() {
+    updateModal.showModal();
+  }
+
+  // Función para cerrar el modal
+  function closeUpdateModal() {
+    updateModal.close();
+  }
+
+  updateCancelButton.addEventListener("click", closeUpdateModal);
 
   // Función para obtener los datos del paciente y mostrar el formulario de actualización
   window.findBy = function (id) {
@@ -123,33 +154,48 @@ window.addEventListener("load", function () {
     fetch(url, settings)
       .then((response) => response.json())
       .then((data) => {
-        // Aquí puedes llenar un formulario con los datos del paciente para actualizar
-        document.getElementById("paciente_id").value = data.id;
-        document.getElementById("paciente_nombre").value = data.nombre;
-        document.getElementById("paciente_apellido").value = data.apellido;
-        document.getElementById("paciente_cedula").value = data.cedula;
-        document.getElementById("paciente_domicilio").value = data.domicilio;
-        document.getElementById("paciente_email").value = data.email;
-        // Mostrar el formulario de actualización (puedes implementar esto según tu diseño)
+        // Aquí llenamos el formulario con los datos del paciente para actualizar
+        document.getElementById("pacienteId").value = data.id;
+        document.getElementById("pacienteNombre").value = data.nombre;
+        document.getElementById("pacienteApellido").value = data.apellido;
+        document.getElementById("pacienteCedula").value = data.cedula;
+        document.getElementById("pacienteEmail").value = data.email;
+        // Desestructurar el objeto domicilio y concatenar sus propiedades
+        const domicilio = data.domicilio;
+        const domicilioString = `${domicilio.calle}, ${domicilio.numero}, ${domicilio.localidad}, ${domicilio.provincia}`;
+        document.getElementById("pacienteDomicilio").value = domicilioString;
+        showUpdateModal();
       })
-      .catch((error) => console.error(`Error al obtener paciente con ID ${id}:`, error));
+      .catch((error) =>
+        console.error(`Error al obtener paciente con ID ${id}:`, error)
+      );
+  };
+
+  function parseDomicilio(domicilioStr) {
+    const [calle, numero, localidad, provincia] = domicilioStr
+      .split(",")
+      .map((s) => s.trim());
+    return { id: parseInt(document.getElementById("pacienteId").value) , calle, numero: parseInt(numero, 10), localidad, provincia };
   }
 
   // Función para actualizar el paciente
   window.updatePaciente = function () {
-    const id = document.getElementById("paciente_id").value;
-    const url = `/pacientes/${id}`;
+    const id = parseInt(document.getElementById("pacienteId").value);
+    const url = `/pacientes`;
     const settings = {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        nombre: document.getElementById("paciente_nombre").value,
-        apellido: document.getElementById("paciente_apellido").value,
-        cedula: document.getElementById("paciente_cedula").value,
-        domicilio: document.getElementById("paciente_domicilio").value,
-        email: document.getElementById("paciente_email").value,
+        id: id, // Incluye el ID en el cuerpo de la solicitud
+        nombre: document.getElementById("pacienteNombre").value,
+        apellido: document.getElementById("pacienteApellido").value,
+        cedula: document.getElementById("pacienteCedula").value,
+        domicilio: parseDomicilio(
+          document.getElementById("pacienteDomicilio").value
+        ),
+        email: document.getElementById("pacienteEmail").value,
       }),
     };
 
@@ -157,13 +203,26 @@ window.addEventListener("load", function () {
       .then((response) => {
         if (response.ok) {
           console.log(`Paciente con ID ${id} actualizado.`);
-          // Actualizar la interfaz de usuario si es necesario
+          showAlert("Paciente Actualizado exitosamente");
+          closeUpdateModal();
         } else {
           console.error(`Error al actualizar paciente con ID ${id}.`);
+          showAlert("rror al actualizar el Paciente", "error");
         }
       })
-      .catch((error) => console.error(`Error al actualizar paciente con ID ${id}:`, error));
-  }
+      .catch((error) => {
+        console.error(`Error al actualizar paciente con ID ${id}:`, error);
+        showAlert("Error al actualizar el Paciente", "error");
+      });
+  };
+
+  // Añadir evento de submit al formulario para actualizar el paciente
+  document
+    .getElementById("updatePacienteForm")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+      updatePaciente();
+    });
 
   // Función para mostrar el alert
   function showAlert(message, type = "success") {

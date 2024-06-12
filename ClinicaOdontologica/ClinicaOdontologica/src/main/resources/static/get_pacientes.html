@@ -52,6 +52,45 @@
         </div>
     </dialog>
 
+    <dialog id="updateModal" class="modal">
+        <div class="modal-box">
+            <h3 class="font-bold text-lg">Actualizar</h3>
+
+                <form id="updatePacienteForm" class=" p-2 flex gap-3  flex-col">
+                    <input id="pacienteId" type="text" class="hidden" />
+
+                    <label class="input input-bordered flex items-center gap-2">
+                        Nombre:
+                        <input id="pacienteNombre" type="text" placeholder="Juan Carlos" required />
+                    </label>
+    
+                    <label class="input input-bordered flex items-center gap-2">
+                        Apellido:
+                        <input id="pacienteApellido" type="text" placeholder="Bodoque" required />
+                    </label>
+    
+                    <label class="input input-bordered flex items-center gap-2">
+                        Cédula:
+                        <input id="pacienteCedula" type="text" placeholder="098742546" required />
+                    </label>
+    
+                    <label class="input input-bordered flex items-center gap-2">
+                        Email:
+                        <input id="pacienteEmail" type="text" placeholder="juanCb@juan.es" required />
+                    </label>
+    
+                    <label class="input input-bordered flex items-center gap-2">
+                        Domicilio:
+                        <input id="pacienteDomicilio" type="text" placeholder="Av.Street, 134, Michigan, Ohio" required />
+                    </label>
+            <div class="modal-action">
+                <button type="button" id="updateCancelButton" class="btn btn-warning">Cancelar</button>
+                <button vtype="submit" id="updateConfirmButton" class="btn btn-success">Actualizar</button>
+            </div>
+        </form>
+        </div>
+    </dialog>
+
     <script type="text/javascript" src="js/base.js"></script>
 </body>
 
