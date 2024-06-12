@@ -1,35 +1,37 @@
 package BackEndC3.ClinicaOdontologica.service;
 
-import BackEndC3.ClinicaOdontologica.dao.OdontologoDAOH2;
-import BackEndC3.ClinicaOdontologica.dao.iDao;
-import BackEndC3.ClinicaOdontologica.model.Odontologo;
+import BackEndC3.ClinicaOdontologica.entity.Odontologo;
+import BackEndC3.ClinicaOdontologica.entity.Paciente;
+import BackEndC3.ClinicaOdontologica.repository.OdontologoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
+@Service
 public class OdontologoService {
-    private iDao<Odontologo> odontologoiDao;
-    public OdontologoService() {
-        odontologoiDao=new OdontologoDAOH2();
-    }
-    public List<Odontologo> buscarOdontologos(){
-        return odontologoiDao.buscarTodos();
-    }
-    public Odontologo buscarPorID(Integer id){
-        return odontologoiDao.buscarPorId(id);
-    }
-    public void actualizarOdontologo(Odontologo odontologo){
-         odontologoiDao.actualizar(odontologo);
-    }
-    public Odontologo crearOdontologos(Odontologo odontologo){
-        return odontologoiDao.guardar(odontologo);
-    }
-    public String odontologoAEliminar(Odontologo paciente){
-        try{
-            odontologoiDao.eliminar(paciente.getId());
-            return "El Odontologo fue eliminado con éxito";
 
-        }catch (Exception e){
-            return "Error al eliminar odontologo";
-        }
+    @Autowired
+    private OdontologoRepository odontologoRepository;
 
+    public List<Odontologo> buscarOdontologos() {
+        return odontologoRepository.findAll();
+    }
+
+    public Odontologo crearOdontologos(Odontologo odontologo) {
+        return odontologoRepository.save(odontologo);
+    }
+
+    public Optional<Odontologo> buscarPorID(Long id) {
+        return odontologoRepository.findById(id);
+    }
+
+    public Odontologo actualizarOdontologo(Odontologo odontologo) {
+        return odontologoRepository.save(odontologo);
+    }
+
+    public void odontologoAEliminar(Long id) {
+        odontologoRepository.deleteById(id);
     }
 }

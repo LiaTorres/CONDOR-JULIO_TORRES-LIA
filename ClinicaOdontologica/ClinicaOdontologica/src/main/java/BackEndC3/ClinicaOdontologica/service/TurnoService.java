@@ -1,35 +1,33 @@
 package BackEndC3.ClinicaOdontologica.service;
 
-import BackEndC3.ClinicaOdontologica.dao.TurnoDAOLISTA;
-import BackEndC3.ClinicaOdontologica.dao.iDao;
-import BackEndC3.ClinicaOdontologica.model.Paciente;
-import BackEndC3.ClinicaOdontologica.model.Turno;
+import BackEndC3.ClinicaOdontologica.entity.Turno;
+import BackEndC3.ClinicaOdontologica.repository.TurnoRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
+@Service
 public class TurnoService {
-    private iDao<Turno> turnoiDao;
+    @Autowired
+    private TurnoRepository turnoRepository;
 
-    public TurnoService() {
-        turnoiDao= new TurnoDAOLISTA();
-    }
     public Turno guardarTurno(Turno turno){
-        return turnoiDao.guardar(turno);
+        return turnoRepository.save(turno);
     }
     public List<Turno> buscarTodos(){
-        return turnoiDao.buscarTodos();
+        return turnoRepository.findAll();
     }
-    public Turno buscarPorId(Integer id){
-        return turnoiDao.buscarPorId(id);
+    public Optional<Turno> buscarPorID(Long id){
+        return turnoRepository.findById(id);
     }
-    public String turnoAEliminar(Turno turno){
-        try{
-            turnoiDao.eliminar(turno.getId());
-            return "El turno fue eliminado con éxito";
+    public void actualizarTurno(Turno turno){
+        turnoRepository.save(turno);
+    }
+    public void turnoAEliminar(Long id){
+        turnoRepository.deleteById(id);
+    }
 
-        }catch (Exception e){
-            return "Error al eliminar";
-        }
-
-    }
 }

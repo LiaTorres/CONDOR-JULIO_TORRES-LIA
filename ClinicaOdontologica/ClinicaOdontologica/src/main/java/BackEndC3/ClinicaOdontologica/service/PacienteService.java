@@ -1,41 +1,34 @@
 package BackEndC3.ClinicaOdontologica.service;
 
-import BackEndC3.ClinicaOdontologica.dao.PacienteDAOH2;
-import BackEndC3.ClinicaOdontologica.dao.iDao;
-import BackEndC3.ClinicaOdontologica.model.Odontologo;
-import BackEndC3.ClinicaOdontologica.model.Paciente;
+import BackEndC3.ClinicaOdontologica.entity.Paciente;
+import BackEndC3.ClinicaOdontologica.repository.PacienteRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
+@Service
 public class PacienteService {
-private iDao<Paciente> pacienteiDao;
+    @Autowired
+    private PacienteRepository pacienteRepository;
 
-    public PacienteService() {
-        pacienteiDao= new PacienteDAOH2();
-    }
-    //metodos manuales
-    public List<Paciente> buscarPacientes(){
-        return pacienteiDao.buscarTodos();
-    }
     public Paciente guardarPaciente(Paciente paciente){
-        return pacienteiDao.guardar(paciente);
+        return pacienteRepository.save(paciente);
     }
-    public Paciente buscarPorID(Integer id){
-        return pacienteiDao.buscarPorId(id);
+    public Optional<Paciente> buscarPorID(Long id){
+        return pacienteRepository.findById(id);
     }
-
+    public Optional<Paciente> buscarPorEmail(String email){
+        return pacienteRepository.findByEmail(email);
+    }
     public void actualizarPaciente(Paciente paciente){
-        pacienteiDao.actualizar(paciente);
+        pacienteRepository.save(paciente);
     }
-    public String pacienteAEliminar(Paciente paciente){
-        try{
-            pacienteiDao.eliminar(paciente.getId());
-            //domicilioiDao.eliminar(paciente.getDomicilio().getId());
-            return "El paciente fue eliminado con éxito";
-
-        }catch (Exception e){
-            return "Error al eliminar paciente";
-        }
-
+    public void pacienteAEliminar(Long id){
+        pacienteRepository.deleteById(id);
+    }
+    public List<Paciente> buscarPacientes(){
+        return pacienteRepository.findAll();
     }
 }
