@@ -26,13 +26,6 @@ public class Turno {
     @Column
     private LocalDate fecha;
 
-//    public Turno(Long id, Paciente paciente, Odontologo odontologo, LocalDate fecha) {
-//        this.id = id;
-//        this.paciente = paciente;
-//        this.odontologo = odontologo;
-//        this.fecha = fecha;
-//    }
-
     @Override
     public String toString() {
         return "Turno{" +
