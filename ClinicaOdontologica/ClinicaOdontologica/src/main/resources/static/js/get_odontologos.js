@@ -109,6 +109,7 @@ window.addEventListener("load", function () {
     showDeleteModal(id);
   };
 
+
   // Función para obtener los datos del odontólogo y mostrar el formulario de actualización
   window.findBy = function (id) {
     const url = `/odontologos/${id}`;
@@ -156,6 +157,92 @@ window.addEventListener("load", function () {
       })
       .catch((error) => console.error(`Error al actualizar odontólogo con ID ${id}:`, error));
   }
+
+
+
+  // Manejo del modal de confirmación
+  const updateModal = document.getElementById("updateModal");
+  const updateCancelButton = document.getElementById("updateCancelButton");
+
+  // Función para mostrar el modal
+  function showUpdateModal() {
+    updateModal.showModal();
+  }
+
+  // Función para cerrar el modal
+  function closeUpdateModal() {
+    updateModal.close();
+  }
+
+  updateCancelButton.addEventListener("click", closeUpdateModal);
+
+  // Función para obtener los datos del paciente y mostrar el formulario de actualización
+  window.findBy = function (id) {
+    const url = `/turnos/${id}`;
+    const settings = {
+      method: "GET",
+    };
+
+    fetch(url, settings)
+      .then((response) => response.json())
+      .then((data) => {
+        // Aquí llenamos el formulario con los datos del paciente para actualizar
+        document.getElementById("turnoId").value = data.id;
+        document.getElementById("turnoPacienteId").value = data.paciente.id;
+        document.getElementById("turnoOdontologoId").value = data.odontologo.id;
+        document.getElementById("turnoFecha").value = data.fecha;
+        showUpdateModal();
+      })
+      .catch((error) =>
+        console.error(`Error al obtener turno con ID ${id}:`, error)
+      );
+  };
+
+  // Función para actualizar el paciente
+  window.updateTurno = function () {
+    const id = document.getElementById("turnoId").value;
+    const url = `/turnos`;
+    const settings = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: id,
+        paciente: { id: document.getElementById("turnoPacienteId").value },
+        odontologo: { id: document.getElementById("turnoOdontologoId").value },
+        fecha: document.getElementById("turnoFecha").value,
+      }),
+    };
+
+    fetch(url, settings)
+      .then((response) => {
+        if (response.ok) {
+          console.log(`Turno con ID ${id} actualizado.`);
+          showAlert("Turno Actualizado exitosamente");
+
+          loadTurnos()
+
+          closeUpdateModal();
+        } else {
+          console.error(`Error al actualizar turno con ID ${id}.`);
+          showAlert("Error al actualizar el turno", "error");
+        }
+      })
+      .catch((error) => {
+        console.error(`Error al actualizar turno con ID ${id}:`, error);
+        showAlert("Error al actualizar el turno", "error");
+      });
+  };
+
+  // Añadir evento de submit al formulario para actualizar el turno
+  document
+    .getElementById("updateTurnoForm")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+      updateTurno();
+    });
+
 
   // Función para mostrar el alert
   function showAlert(message, type = "success") {
