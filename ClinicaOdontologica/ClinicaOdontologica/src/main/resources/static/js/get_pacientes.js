@@ -18,62 +18,37 @@ window.addEventListener("load", function () {
           let tr_id = paciente.id;
           pacienteRow.id = tr_id;
 
-          let deleteButton =
-            "<button" +
-            " id=" +
-            '"' +
-            "btn_delete_" +
-            paciente.id +
-            '"' +
-            ' type="button" onclick="deleteBy(' +
-            paciente.id +
-            ')" class="btn btn-circle btn-error">' +
-            '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M6 18L18 6M6 6l12 12"/></svg>' +
-            "</button>";
+          const deleteButton = createButton(
+            `btn_delete_${paciente.id}`,
+            "btn btn-circle btn-error",
+            `deleteBy(${paciente.id})`,
+            `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M6 18L18 6M6 6l12 12"/>
+            </svg>`
+          );
 
-          let updateButton =
-            "<button" +
-            " id=" +
-            '"' +
-            "btn_id_" +
-            paciente.id +
-            '"' +
-            ' type="button" onclick="findBy(' +
-            paciente.id +
-            ')" class="btn btn-circle btn-success mr-4">' +
-            '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"> <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" ></path></svg>' +
-            "</button>";
+          const updateButton = createButton(
+            `btn_id_${paciente.id}`,
+            "btn btn-circle btn-success mr-4",
+            `findBy(${paciente.id})`,
+            `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
+            </svg>`
+          );
 
-          // Armamos cada columna de la fila
-          pacienteRow.innerHTML =
-            "<td>" +
-            paciente.id +
-            "</td>" +
-            "<td>" +
-            paciente.nombre.toUpperCase() +
-            "</td>" +
-            "<td>" +
-            paciente.apellido.toUpperCase() +
-            "</td>" +
-            "<td>" +
-            paciente.cedula.toUpperCase() +
-            "</td>" +
-            "<td>" +
-            paciente.domicilio.calle +
-            ", " +
-            paciente.domicilio.numero +
-            ", " +
-            paciente.domicilio.localidad +
-            ", " +
-            paciente.domicilio.provincia +
-            "</td>" +
-            "<td>" +
-            paciente.email.toUpperCase() +
-            "</td>" +
-            "<td>" +
-            updateButton +
-            deleteButton +
-            "</td>";
+          pacienteRow.innerHTML = `
+          <td>${paciente.id}</td>
+          <td class="nombre">${paciente.nombre}</td>
+          <td class="apellido">${paciente.apellido}</td>
+          <td class="cedula">${paciente.cedula}</td>
+          <td class="domicilio">${paciente.domicilio.calle}, ${
+            paciente.domicilio.numero
+          }, ${paciente.domicilio.localidad}, ${
+            paciente.domicilio.provincia
+          }</td>
+          <td class="email">${paciente.email}</td>
+          <td>${updateButton}${deleteButton}</td>
+        `;
         }
       })
       .catch((error) =>
@@ -81,27 +56,31 @@ window.addEventListener("load", function () {
       );
   })();
 
+  function createButton(id, className, onClick, innerHTML) {
+    return `<button id="${id}" type="button" onclick="${onClick}" class="${className}">${innerHTML}</button>`;
+  }
+
   // Manejo del modal de confirmación
-  const confirmDeleteModal = document.getElementById("confirmDeleteModal");
+  const deleteModal = document.getElementById("deleteModal");
   const confirmDeleteButton = document.getElementById("confirmDeleteButton");
   const cancelDeleteButton = document.getElementById("cancelDeleteButton");
   let pacienteIdToDelete = null; // Para almacenar el ID del paciente a eliminar
 
   cancelDeleteButton.addEventListener("click", () => {
-    confirmDeleteModal.close();
+    deleteModal.close();
   });
 
   confirmDeleteButton.addEventListener("click", () => {
     if (pacienteIdToDelete !== null) {
       deletePaciente(pacienteIdToDelete);
-      confirmDeleteModal.close();
+      deleteModal.close();
     }
   });
 
   // Función para mostrar el modal de confirmación
   function showDeleteModal(id) {
     pacienteIdToDelete = id;
-    confirmDeleteModal.showModal();
+    deleteModal.showModal();
   }
 
   // Función para eliminar el paciente
@@ -160,10 +139,14 @@ window.addEventListener("load", function () {
         document.getElementById("pacienteApellido").value = data.apellido;
         document.getElementById("pacienteCedula").value = data.cedula;
         document.getElementById("pacienteEmail").value = data.email;
-        // Desestructurar el objeto domicilio y concatenar sus propiedades
-        const domicilio = data.domicilio;
-        const domicilioString = `${domicilio.calle}, ${domicilio.numero}, ${domicilio.localidad}, ${domicilio.provincia}`;
-        document.getElementById("pacienteDomicilio").value = domicilioString;
+        document.getElementById("pacienteDomicilioCalle").value =
+          data.domicilio.calle;
+        document.getElementById("pacienteDomicilioNumero").value =
+          data.domicilio.numero;
+        document.getElementById("pacienteDomicilioLocalidad").value =
+          data.domicilio.localidad;
+        document.getElementById("pacienteDomicilioProvincia").value =
+          data.domicilio.provincia;
         showUpdateModal();
       })
       .catch((error) =>
@@ -171,16 +154,9 @@ window.addEventListener("load", function () {
       );
   };
 
-  function parseDomicilio(domicilioStr) {
-    const [calle, numero, localidad, provincia] = domicilioStr
-      .split(",")
-      .map((s) => s.trim());
-    return { id: parseInt(document.getElementById("pacienteId").value) , calle, numero: parseInt(numero, 10), localidad, provincia };
-  }
-
   // Función para actualizar el paciente
   window.updatePaciente = function () {
-    const id = parseInt(document.getElementById("pacienteId").value);
+    const id = document.getElementById("pacienteId").value
     const url = `/pacientes`;
     const settings = {
       method: "PUT",
@@ -188,13 +164,18 @@ window.addEventListener("load", function () {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        id: id, // Incluye el ID en el cuerpo de la solicitud
+        id: id , 
         nombre: document.getElementById("pacienteNombre").value,
         apellido: document.getElementById("pacienteApellido").value,
         cedula: document.getElementById("pacienteCedula").value,
-        domicilio: parseDomicilio(
-          document.getElementById("pacienteDomicilio").value
-        ),
+        fechaIngreso: document.getElementById("pacienteFechaIngreso").value,
+        domicilio: {
+          id: id,
+          calle: document.getElementById("pacienteDomicilioCalle").value,
+          numero: document.getElementById("pacienteDomicilioNumero").value,
+          localidad: document.getElementById("pacienteDomicilioLocalidad").value,
+          provincia: document.getElementById("pacienteDomicilioProvincia").value,
+        },
         email: document.getElementById("pacienteEmail").value,
       }),
     };
@@ -204,10 +185,11 @@ window.addEventListener("load", function () {
         if (response.ok) {
           console.log(`Paciente con ID ${id} actualizado.`);
           showAlert("Paciente Actualizado exitosamente");
+          updateTableRow(id);
           closeUpdateModal();
         } else {
           console.error(`Error al actualizar paciente con ID ${id}.`);
-          showAlert("rror al actualizar el Paciente", "error");
+          showAlert("Error al actualizar el Paciente", "error");
         }
       })
       .catch((error) => {
@@ -215,6 +197,23 @@ window.addEventListener("load", function () {
         showAlert("Error al actualizar el Paciente", "error");
       });
   };
+
+  // Función para actualizar la fila de la tabla
+  function updateTableRow(id) {
+    const row = document.getElementById(id);
+    if (row) {
+      row.querySelector(".nombre").textContent =
+        document.getElementById("pacienteNombre").value;
+      row.querySelector(".apellido").textContent =
+        document.getElementById("pacienteApellido").value;
+      row.querySelector(".cedula").textContent =
+        document.getElementById("pacienteCedula").value;
+      row.querySelector(".email").textContent =
+        document.getElementById("pacienteEmail").value;
+      row.querySelector(".domicilio").textContent = 
+      `${document.getElementById("pacienteDomicilioCalle").value}, ${document.getElementById("pacienteDomicilioNumero").value}, ${document.getElementById("pacienteDomicilioLocalidad").value}, ${document.getElementById("pacienteDomicilioProvincia").value}`;
+    }
+  }
 
   // Añadir evento de submit al formulario para actualizar el paciente
   document

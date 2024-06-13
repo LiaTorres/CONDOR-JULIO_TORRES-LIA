@@ -10,7 +10,12 @@ window.addEventListener("load", function () {
         apellido: document.getElementById("pacienteApellido").value,
         cedula: document.getElementById("pacienteCedula").value,
         fechaIngreso: document.getElementById("pacienteFechaIngreso").value,
-        domicilio: parseDomicilio(document.getElementById("pacienteDomicilio").value),
+        domicilio: {
+          calle: document.getElementById("pacienteDomicilioCalle").value,
+          numero: document.getElementById("pacienteDomicilioNumero").value,
+          localidad: document.getElementById("pacienteDomicilioLocalidad").value,
+          provincia: document.getElementById("pacienteDomicilioProvincia").value
+        },
         email: document.getElementById("pacienteEmail").value,
       };
 
@@ -37,11 +42,6 @@ window.addEventListener("load", function () {
           showAlert("Error al agregar el Paciente", "error");
         });
     });
-
-  function parseDomicilio(domicilioStr) {
-    const [calle, numero, localidad, provincia] = domicilioStr.split(",").map((s) => s.trim());
-    return { calle, numero, localidad, provincia };
-  }
 
   // Función para mostrar el alert
   function showAlert(message, type = "success") {

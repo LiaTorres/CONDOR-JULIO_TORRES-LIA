@@ -20,37 +20,59 @@
 
     <main class="my-4">
         <div class="max-w-2xl mx-auto rounded-md overflow-hidden">
-            <form id="addPacienteForm" class=" p-2 flex gap-3  flex-col">
+            <form id="addPacienteForm" class=" p-2 flex flex-col gap-3 wrap">
 
-                <label class="input input-bordered flex items-center gap-2">
+                <div class="flex flex-col gap-2 sm:flex-row">
+                    <label class="input input-bordered flex items-center gap-2 sm:w-1/2">
                     Nombre:
-                    <input id="pacienteNombre" type="text" placeholder="Juan Carlos" required />
+                    <input class="" id="pacienteNombre" type="text" placeholder="Juan Carlos" required />
                 </label>
 
-                <label class="input input-bordered flex items-center gap-2">
+                <label class="input input-bordered flex items-center gap-2 sm:w-1/2">
                     Apellido:
                     <input id="pacienteApellido" type="text" placeholder="Bodoque" required />
                 </label>
+                </div>
 
-                <label class="input input-bordered flex items-center gap-2">
-                    Cédula:
-                    <input id="pacienteCedula" type="text" placeholder="098742546" required />
-                </label>
-
-                <label class="input input-bordered flex items-center gap-2">
-                    Fecha de Ingreso:
-                    <input id="pacienteFechaIngreso" type="date" placeholder="19-06-2002" required />
-                </label>
-
+                
+                <div class="flex flex-col gap-2 sm:flex-row">
+                    <label class="input input-bordered flex items-center gap-2 sm:w-1/2">
+                        Cédula:
+                        <input id="pacienteCedula" type="text" placeholder="098742546" required />
+                    </label>
+    
+                    <label for="pacienteFechaIngreso" class="input input-bordered flex items-center gap-2 sm:w-1/2">
+                        Fecha de Ingreso:
+                        <input id="pacienteFechaIngreso" type="date" placeholder="19-06-2002" required />
+                    </label>
+                </div>
+            
                 <label class="input input-bordered flex items-center gap-2">
                     Email:
                     <input id="pacienteEmail" type="text" placeholder="juanCb@juan.es" required />
                 </label>
 
-                <label class="input input-bordered flex items-center gap-2">
-                    Domicilio:
-                    <input id="pacienteDomicilio" type="text" placeholder="Av.Street, 134, Michigan, Ohio" required />
-                </label>
+                Domicilio:
+                <div class="flex flex-col gap-2 sm:flex-row">
+                    <label class="input input-bordered flex items-center gap-2 sm:w-1/2">
+                        Calle:
+                        <input id="pacienteDomicilioCalle" type="text" placeholder="Av.Street" required />
+                    </label>
+                    <label class="input input-bordered flex items-center gap-2 sm:w-1/2">
+                        Numero:
+                        <input id="pacienteDomicilioNumero" type="number" placeholder="134" required />
+                    </label>
+                </div>
+                <div class="flex flex-col gap-2 sm:flex-row">
+                    <label class="input input-bordered flex items-center gap-2 sm:w-1/2">
+                        Localidad:
+                        <input id="pacienteDomicilioLocalidad" type="text" placeholder="Michigan" required />
+                    </label>
+                    <label class="input input-bordered flex items-center gap-2 sm:w-1/2">
+                        Provincia:
+                        <input id="pacienteDomicilioProvincia" type="text" placeholder="Ohio" required />
+                    </label>
+                </div>
 
                 <button type="submit" class="btn btn-primary my-2 max-w-sm sm:px-24 mx-auto">Agregar Paciente</button>
             </form>

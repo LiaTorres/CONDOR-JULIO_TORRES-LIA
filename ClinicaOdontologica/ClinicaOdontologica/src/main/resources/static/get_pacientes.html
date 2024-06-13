@@ -41,7 +41,7 @@
         </div>
     </main>
 
-    <dialog id="confirmDeleteModal" class="modal">
+    <dialog id="deleteModal" class="modal">
         <div class="modal-box">
             <h3 class="font-bold text-lg">Confirmar Eliminación</h3>
             <p class="py-4">¿Estás seguro de que deseas eliminar este Paciente?</p>
@@ -56,38 +56,60 @@
         <div class="modal-box">
             <h3 class="font-bold text-lg">Actualizar</h3>
 
-                <form id="updatePacienteForm" class=" p-2 flex gap-3  flex-col">
-                    <input id="pacienteId" type="text" class="hidden" />
+            <form id="updatePacienteForm" class="p-2 flex gap-3 flex-col">
+                <input id="pacienteId" type="number" class="hidden" />
+                <input id="pacienteFechaIngreso" type="date" class="hidden" />
 
-                    <label class="input input-bordered flex items-center gap-2">
+                <div class="flex flex-col gap-2 sm:flex-row">
+                    <label class="input input-bordered flex items-center gap-2 sm:w-1/2">
                         Nombre:
                         <input id="pacienteNombre" type="text" placeholder="Juan Carlos" required />
                     </label>
-    
-                    <label class="input input-bordered flex items-center gap-2">
+
+                    <label class="input input-bordered flex items-center gap-2 sm:w-1/2">
                         Apellido:
-                        <input id="pacienteApellido" type="text" placeholder="Bodoque" required />
+                        <input class="w-32" id="pacienteApellido" type="text" placeholder="Bodoque" required />
                     </label>
-    
-                    <label class="input input-bordered flex items-center gap-2">
+                </div>
+
+                <div class="flex flex-col gap-2 sm:flex-row">
+                    <label class="input input-bordered flex items-center gap-2 sm:w-1/2">
                         Cédula:
                         <input id="pacienteCedula" type="text" placeholder="098742546" required />
                     </label>
-    
-                    <label class="input input-bordered flex items-center gap-2">
+
+                    <label class="input input-bordered flex items-center gap-2 sm:w-1/2">
                         Email:
-                        <input id="pacienteEmail" type="text" placeholder="juanCb@juan.es" required />
+                        <input class="w-36" id="pacienteEmail" type="text" placeholder="juanCb@juan.es" required />
                     </label>
-    
-                    <label class="input input-bordered flex items-center gap-2">
-                        Domicilio:
-                        <input id="pacienteDomicilio" type="text" placeholder="Av.Street, 134, Michigan, Ohio" required />
+                </div>
+
+                Domicilio:
+                <div class="flex flex-col gap-2 sm:flex-row">
+                    <label class="input input-bordered flex items-center gap-2 sm:w-1/2">
+                        Calle:
+                        <input id="pacienteDomicilioCalle" type="text" placeholder="Av.Street" required />
                     </label>
-            <div class="modal-action">
-                <button type="button" id="updateCancelButton" class="btn btn-warning">Cancelar</button>
-                <button vtype="submit" id="updateConfirmButton" class="btn btn-success">Actualizar</button>
-            </div>
-        </form>
+                    <label class="input input-bordered flex items-center gap-2 sm:w-1/2">
+                        Numero:
+                        <input class="w-32" id="pacienteDomicilioNumero" type="number" placeholder="134" required />
+                    </label>
+                </div>
+                <div class="flex flex-col gap-2 sm:flex-row">
+                    <label class="input input-bordered flex items-center gap-2 sm:w-1/2">
+                        Localidad:
+                        <input id="pacienteDomicilioLocalidad" type="text" placeholder="Michigan" required />
+                    </label>
+                    <label class="input input-bordered flex items-center gap-2 sm:w-1/2">
+                        Provincia:
+                        <input class="w-32" id="pacienteDomicilioProvincia" type="text" placeholder="Ohio" required />
+                    </label>
+                </div>
+                <div class="modal-action">
+                    <button type="button" id="updateCancelButton" class="btn btn-warning">Cancelar</button>
+                    <button vtype="submit" id="updateConfirmButton" class="btn btn-success">Actualizar</button>
+                </div>
+            </form>
         </div>
     </dialog>
 
