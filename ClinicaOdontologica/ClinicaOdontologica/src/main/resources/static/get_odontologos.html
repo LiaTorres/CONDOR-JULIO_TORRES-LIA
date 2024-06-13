@@ -49,6 +49,36 @@
         </div>
     </dialog>
 
+    <dialog id="updateModal" class="modal">
+        <div class="modal-box">
+            <h3 class="font-bold text-lg">Actualizar</h3>
+
+            <form id="updateOdontologoForm" class="p-2 flex gap-3 flex-col">
+                <input id="odontologoId" type="number" class="hidden" />
+
+                <label class="input input-bordered flex items-center gap-2">
+                    Matrícula:
+                    <input id="odontologoMatricula" type="text" placeholder="0980007" required />
+                </label>
+            
+                <label class="input input-bordered flex items-center gap-2">
+                    Nombre:
+                    <input id="odontologoNombre" type="text" placeholder="Juanito" required />
+                </label>
+            
+                <label class="input input-bordered flex items-center gap-2">
+                    Apellido:
+                    <input id="odontologoApellido" type="text" placeholder="Maraña" required />
+                </label>
+
+                <div class="modal-action">
+                    <button type="button" id="updateCancelButton" class="btn btn-warning">Cancelar</button>
+                    <button vtype="submit" id="updateConfirmButton" class="btn btn-success">Actualizar</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
     <script type="text/javascript" src="js/base.js"></script>
 </body>
 

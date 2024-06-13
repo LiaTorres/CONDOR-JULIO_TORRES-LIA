@@ -1,5 +1,5 @@
 window.addEventListener("load", function () {
-  (function () {
+  (function  () {
     const url = "/odontologos";
     const settings = {
       method: "GET",
@@ -14,43 +14,34 @@ window.addEventListener("load", function () {
           let tr_id = odontologo.id;
           odontologoRow.id = tr_id;
 
-          let deleteButton =
-            "<button" +
-            " id=" +
-            '"' +
-            "btn_delete_" +
-            odontologo.id +
-            '"' +
-            ' type="button" onclick="deleteBy(' +
-            odontologo.id +
-            ')" class="btn btn-circle btn-error">' +
-            '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M6 18L18 6M6 6l12 12"/></svg>' +
-            "</button>";
+          const deleteButton = createButton(
+            `btn_delete_${odontologo.id}`,
+            "btn btn-circle btn-error",
+            `deleteBy(${odontologo.id})`,
+            `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M6 18L18 6M6 6l12 12"/>
+            </svg>`
+          );
 
-          let updateButton =
-            "<button" +
-            " id=" +
-            '"' +
-            "btn_id_" +
-            odontologo.id +
-            '"' +
-            ' type="button" onclick="findBy(' +
-            odontologo.id +
-            ')" class="btn btn-circle btn-success mr-4">' +
-            '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"> <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" ></path></svg>' +
-            "</button>";
-
+          const updateButton = createButton(
+            `btn_id_${odontologo.id}`,
+            "btn btn-circle btn-success mr-4",
+            `findBy(${odontologo.id})`,
+            `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
+            </svg>`
+          );
           odontologoRow.innerHTML =
             "<td>" +
             odontologo.id +
             "</td>" +
-            '<td>' +
+            '<td class="matricula">' +
             odontologo.matricula.toUpperCase() +
             "</td>" +
-            '<td>' +
+            '<td class="nombre">' +
             odontologo.nombre.toUpperCase() +
             "</td>" +
-            '<td>' +
+            '<td class="apellido">' +
             odontologo.apellido.toUpperCase() +
             "</td>" +
             "<td>" +
@@ -61,6 +52,10 @@ window.addEventListener("load", function () {
       })
       .catch((error) => console.error('Error al obtener los odontólogos:', error));
   })();
+
+  function createButton(id, className, onClick, innerHTML) {
+    return `<button id="${id}" type="button" onclick="${onClick}" class="${className}">${innerHTML}</button>`;
+  }
 
   // Manejo del modal de confirmación
   const confirmDeleteModal = document.getElementById('confirmDeleteModal');
@@ -110,56 +105,6 @@ window.addEventListener("load", function () {
   };
 
 
-  // Función para obtener los datos del odontólogo y mostrar el formulario de actualización
-  window.findBy = function (id) {
-    const url = `/odontologos/${id}`;
-    const settings = {
-      method: "GET",
-    };
-
-    fetch(url, settings)
-      .then((response) => response.json())
-      .then((data) => {
-        // Aquí puedes llenar un formulario con los datos del odontólogo para actualizar
-        document.getElementById("odontologo_id").value = data.id;
-        document.getElementById("odontologo_matricula").value = data.matricula;
-        document.getElementById("odontologo_nombre").value = data.nombre;
-        document.getElementById("odontologo_apellido").value = data.apellido;
-        // Mostrar el formulario de actualización (puedes implementar esto según tu diseño)
-      })
-      .catch((error) => console.error(`Error al obtener odontólogo con ID ${id}:`, error));
-  }
-
-  // Función para actualizar el odontólogo
-  window.updateOdontologo = function () {
-    const id = document.getElementById("odontologo_id").value;
-    const url = `/odontologos/${id}`;
-    const settings = {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        matricula: document.getElementById("odontologo_matricula").value,
-        nombre: document.getElementById("odontologo_nombre").value,
-        apellido: document.getElementById("odontologo_apellido").value,
-      }),
-    };
-
-    fetch(url, settings)
-      .then((response) => {
-        if (response.ok) {
-          console.log(`Odontólogo con ID ${id} actualizado.`);
-          // Actualizar la interfaz de usuario si es necesario
-        } else {
-          console.error(`Error al actualizar odontólogo con ID ${id}.`);
-        }
-      })
-      .catch((error) => console.error(`Error al actualizar odontólogo con ID ${id}:`, error));
-  }
-
-
-
   // Manejo del modal de confirmación
   const updateModal = document.getElementById("updateModal");
   const updateCancelButton = document.getElementById("updateCancelButton");
@@ -178,7 +123,7 @@ window.addEventListener("load", function () {
 
   // Función para obtener los datos del paciente y mostrar el formulario de actualización
   window.findBy = function (id) {
-    const url = `/turnos/${id}`;
+    const url = `/odontologos/${id}`;
     const settings = {
       method: "GET",
     };
@@ -187,10 +132,10 @@ window.addEventListener("load", function () {
       .then((response) => response.json())
       .then((data) => {
         // Aquí llenamos el formulario con los datos del paciente para actualizar
-        document.getElementById("turnoId").value = data.id;
-        document.getElementById("turnoPacienteId").value = data.paciente.id;
-        document.getElementById("turnoOdontologoId").value = data.odontologo.id;
-        document.getElementById("turnoFecha").value = data.fecha;
+        document.getElementById("odontologoId").value = data.id;
+        document.getElementById("odontologoMatricula").value = data.matricula;
+        document.getElementById("odontologoNombre").value = data.nombre;
+        document.getElementById("odontologoApellido").value = data.apellido;
         showUpdateModal();
       })
       .catch((error) =>
@@ -199,9 +144,9 @@ window.addEventListener("load", function () {
   };
 
   // Función para actualizar el paciente
-  window.updateTurno = function () {
-    const id = document.getElementById("turnoId").value;
-    const url = `/turnos`;
+  function updateOdontologo () {
+    const id = document.getElementById("odontologoId").value;
+    const url = `/odontologos`;
     const settings = {
       method: "PUT",
       headers: {
@@ -209,38 +154,49 @@ window.addEventListener("load", function () {
       },
       body: JSON.stringify({
         id: id,
-        paciente: { id: document.getElementById("turnoPacienteId").value },
-        odontologo: { id: document.getElementById("turnoOdontologoId").value },
-        fecha: document.getElementById("turnoFecha").value,
+        matricula: document.getElementById("odontologoMatricula").value,
+        nombre: document.getElementById("odontologoNombre").value,
+        apellido: document.getElementById("odontologoApellido").value,
       }),
     };
 
     fetch(url, settings)
       .then((response) => {
         if (response.ok) {
-          console.log(`Turno con ID ${id} actualizado.`);
-          showAlert("Turno Actualizado exitosamente");
-
-          loadTurnos()
-
+          console.log(`Odontologo con ID ${id} actualizado.`);
+          showAlert("Odontologo Actualizado exitosamente");
+          updateTableRow(id)
           closeUpdateModal();
         } else {
-          console.error(`Error al actualizar turno con ID ${id}.`);
-          showAlert("Error al actualizar el turno", "error");
+          console.error(`Error al actualizar Odontologo con ID ${id}.`);
+          showAlert("Error al actualizar el Odontologo", "error");
         }
       })
       .catch((error) => {
-        console.error(`Error al actualizar turno con ID ${id}:`, error);
-        showAlert("Error al actualizar el turno", "error");
+        console.error(`Error al actualizar Odontologo con ID ${id}:`, error);
+        showAlert("Error al actualizar el Odontologo", "error");
       });
   };
 
+  // Función para actualizar la fila de la tabla
+  function updateTableRow(id) {
+    const row = document.getElementById(id);
+    if (row) {
+      row.querySelector(".nombre").textContent =
+        document.getElementById("odontologoNombre").value;
+      row.querySelector(".apellido").textContent =
+        document.getElementById("odontologoApellido").value;
+      row.querySelector(".matricula").textContent =
+        document.getElementById("odontologoMatricula").value;
+    }
+  }
+
   // Añadir evento de submit al formulario para actualizar el turno
   document
-    .getElementById("updateTurnoForm")
+    .getElementById("updateOdontologoForm")
     .addEventListener("submit", function (event) {
       event.preventDefault();
-      updateTurno();
+      updateOdontologo();
     });
 
 
