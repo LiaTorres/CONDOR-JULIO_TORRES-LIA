@@ -1,7 +1,6 @@
 package BackEndC3.ClinicaOdontologica.service;
 
 import BackEndC3.ClinicaOdontologica.entity.Odontologo;
-import BackEndC3.ClinicaOdontologica.entity.Paciente;
 import BackEndC3.ClinicaOdontologica.repository.OdontologoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
