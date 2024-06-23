@@ -2,6 +2,9 @@ package BackEndC3.ClinicaOdontologica.service;
 
 import BackEndC3.ClinicaOdontologica.entity.Domicilio;
 import BackEndC3.ClinicaOdontologica.entity.Paciente;
+import BackEndC3.ClinicaOdontologica.entity.Odontologo;
+import BackEndC3.ClinicaOdontologica.entity.Turno;
+
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -20,44 +23,58 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TurnoServiceTest {
     @Autowired
     private PacienteService pacienteService;
+    @Autowired
+    private OdontologoService odontologoService;
+    @Autowired
+    private TurnoService turnoService;
 
     @Test
     @Order(1)
-    public void guardarPaciente(){
-        Paciente paciente= new Paciente("Jorgito","pereyra","11111", LocalDate.of(2024,6,20),new Domicilio("calle falsa",123,"La Rioja","Argentina"),"jorge.pereyra@digitalhouse.com");
+    public void crearTurno(){
+        Paciente paciente= new Paciente(1L,"Pedro","Gonzales","9999", LocalDate.of(2024,6,20),new Domicilio(1L, "calle falsa",123,"La Rioja","Argentina"),"jorge.pereyra@digitalhouse.com");
         Paciente pacienteGuardado= pacienteService.guardarPaciente(paciente);
-        assertEquals(1L,pacienteGuardado.getId());
+        Odontologo odontologo = new Odontologo(1L, "1233", "Ernesto", "Rodriguez");
+        Odontologo odontologoGuardado = odontologoService.crearOdontologos(odontologo);
+        Turno turno = new Turno(1l, pacienteGuardado, odontologoGuardado, LocalDate.of(2024,6,20));
+        Turno turnoGuardado = turnoService.guardarTurno(turno);
+        assertEquals(1L,turnoGuardado.getId());
     }
 
     @Test
     @Order(2)
-    public void buscarPacientePorId(){
+    public void buscarTurnoPorId(){
         Long id= 1L;
-        Optional<Paciente> pacienteBuscado= pacienteService.buscarPorId(id);
-        assertNotNull(pacienteBuscado.get());
+        Optional<Turno> turnoBuscado = turnoService.buscarPorID(id);
+        assertNotNull(turnoBuscado.get());
     }
 
     @Test
     @Order(3)
-    public void actualizarPaciente(){
-        Long id= 1L;
-        Paciente paciente= new Paciente(id,"German","Fraire","11111", LocalDate.of(2024,6,20),new Domicilio("calle falsa",123,"La Rioja","Argentina"),"jorge.pereyra@digitalhouse.com");
-        pacienteService.actualizarPaciente(paciente);
-        Optional<Paciente> pacienteBuscado= pacienteService.buscarPorId(id);
-        assertEquals("German", pacienteBuscado.get().getNombre());
+    public void actualizarTurno() {
+        Long id = 1L;
+        LocalDate nuevaFecha = LocalDate.of(2024, 12, 15);
+        Optional<Turno> turnoInicial = turnoService.buscarPorID(id);
+        if (turnoInicial.isPresent()){
+            Turno turnoNuevaFecha = turnoInicial.get();
+            turnoNuevaFecha.setFecha(nuevaFecha);
+            turnoService.actualizarTurno(turnoNuevaFecha);
+            Optional<Turno> turnoActualizado = turnoService.buscarPorID(id);
+            assertEquals(nuevaFecha, turnoActualizado.get().getFecha());
+        }
+        assertEquals(nuevaFecha, turnoInicial.get().getFecha());
     }
 
-   @Test
-   @Order(4)
-   public void ListarTodos(){
-        List<Paciente> listaPacientes= pacienteService.listarTodos();
-        assertEquals(1,listaPacientes.size());
-   }
-   @Test
+    @Test
+    @Order(4)
+    public void ListarTodos(){
+        List<Turno> listaTurnos = turnoService.buscarTodos();
+        assertEquals(1, listaTurnos.size());
+    }
+    @Test
     @Order(5)
-    public void eliminarPaciente(){
-        pacienteService.eliminarPaciente(1L);
-        Optional<Paciente> pacienteEliminado= pacienteService.buscarPorId(1L);
-        assertFalse(pacienteEliminado.isPresent());
-   }
+    public void eliminarTurno(){
+        turnoService.turnoAEliminar(1L);
+        Optional<Turno> turnoEliminado = turnoService.buscarPorID(1L);
+        assertFalse(turnoEliminado.isPresent());
+    }
 }

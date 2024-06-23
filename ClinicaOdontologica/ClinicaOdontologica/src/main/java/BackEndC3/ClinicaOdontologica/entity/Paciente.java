@@ -31,6 +31,19 @@ public class Paciente {
     @Column( nullable = false) //unique = true,
     private String email;
 
+    public Paciente(Long id, String nombre, String apellido, String cedula, LocalDate fechaIngreso, Domicilio domicilio, String email) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.cedula = cedula;
+        this.fechaIngreso = fechaIngreso;
+        this.domicilio = domicilio;
+        this.email = email;
+    }
+
+    public Paciente() {
+    }
+
     @Override
     public String toString() {
         return "Paciente{" +

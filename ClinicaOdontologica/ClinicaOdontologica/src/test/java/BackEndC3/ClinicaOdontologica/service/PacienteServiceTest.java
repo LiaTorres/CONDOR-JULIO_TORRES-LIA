@@ -24,7 +24,7 @@ public class PacienteServiceTest {
     @Test
     @Order(1)
     public void guardarPaciente(){
-        Paciente paciente= new Paciente("Jorgito","pereyra","11111", LocalDate.of(2024,6,20),new Domicilio("calle falsa",123,"La Rioja","Argentina"),"jorge.pereyra@digitalhouse.com");
+        Paciente paciente= new Paciente(1L,"Jorgito","pereyra","11111", LocalDate.of(2024,6,20),new Domicilio(1L,"calle falsa",123,"La Rioja","Argentina"),"jorge.pereyra@digitalhouse.com");
         Paciente pacienteGuardado= pacienteService.guardarPaciente(paciente);
         assertEquals(1L,pacienteGuardado.getId());
     }
@@ -33,7 +33,7 @@ public class PacienteServiceTest {
     @Order(2)
     public void buscarPacientePorId(){
         Long id= 1L;
-        Optional<Paciente> pacienteBuscado= pacienteService.buscarPorId(id);
+        Optional<Paciente> pacienteBuscado= pacienteService.buscarPorID(id);
         assertNotNull(pacienteBuscado.get());
     }
 
@@ -41,23 +41,23 @@ public class PacienteServiceTest {
     @Order(3)
     public void actualizarPaciente(){
         Long id= 1L;
-        Paciente paciente= new Paciente(id,"German","Fraire","11111", LocalDate.of(2024,6,20),new Domicilio("calle falsa",123,"La Rioja","Argentina"),"jorge.pereyra@digitalhouse.com");
+        Paciente paciente= new Paciente(id,"German","Fraire","11111", LocalDate.of(2024,6,20),new Domicilio(1L, "calle falsa",123,"La Rioja","Argentina"),"jorge.pereyra@digitalhouse.com");
         pacienteService.actualizarPaciente(paciente);
-        Optional<Paciente> pacienteBuscado= pacienteService.buscarPorId(id);
+        Optional<Paciente> pacienteBuscado= pacienteService.buscarPorID(id);
         assertEquals("German", pacienteBuscado.get().getNombre());
             }
 
    @Test
    @Order(4)
    public void ListarTodos(){
-        List<Paciente> listaPacientes= pacienteService.listarTodos();
+        List<Paciente> listaPacientes= pacienteService.buscarPacientes();
         assertEquals(1,listaPacientes.size());
    }
    @Test
     @Order(5)
     public void eliminarPaciente(){
-        pacienteService.eliminarPaciente(1L);
-        Optional<Paciente> pacienteEliminado= pacienteService.buscarPorId(1L);
+        pacienteService.pacienteAEliminar(1L);
+        Optional<Paciente> pacienteEliminado= pacienteService.buscarPorID(1L);
         assertFalse(pacienteEliminado.isPresent());
    }
 }
