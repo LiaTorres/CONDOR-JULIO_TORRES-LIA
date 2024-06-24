@@ -31,19 +31,19 @@ public class TurnoServiceTest {
     @Test
     @Order(1)
     public void crearTurno(){
-        Paciente paciente= new Paciente(1L,"Pedro","Gonzales","9999", LocalDate.of(2024,6,20),new Domicilio(1L, "calle falsa",123,"La Rioja","Argentina"),"jorge.pereyra@digitalhouse.com");
+        Paciente paciente= new Paciente(4L,"Pedro","Gonzales","9999", LocalDate.of(2024,6,20),new Domicilio(4L, "calle falsa",123,"La Rioja","Argentina"),"jorge.pereyra@digitalhouse.com");
         Paciente pacienteGuardado= pacienteService.guardarPaciente(paciente);
-        Odontologo odontologo = new Odontologo(1L, "1233", "Ernesto", "Rodriguez");
+        Odontologo odontologo = new Odontologo(4L, "1233", "Ernesto", "Rodriguez");
         Odontologo odontologoGuardado = odontologoService.crearOdontologos(odontologo);
-        Turno turno = new Turno(1l, pacienteGuardado, odontologoGuardado, LocalDate.of(2024,6,20));
+        Turno turno = new Turno(4L, pacienteGuardado, odontologoGuardado, LocalDate.of(2024,6,20));
         Turno turnoGuardado = turnoService.guardarTurno(turno);
-        assertEquals(1L,turnoGuardado.getId());
+        assertEquals(4L,turnoGuardado.getId());
     }
 
     @Test
     @Order(2)
     public void buscarTurnoPorId(){
-        Long id= 1L;
+        Long id= 4L;
         Optional<Turno> turnoBuscado = turnoService.buscarPorID(id);
         assertNotNull(turnoBuscado.get());
     }
@@ -51,7 +51,7 @@ public class TurnoServiceTest {
     @Test
     @Order(3)
     public void actualizarTurno() {
-        Long id = 1L;
+        Long id = 4L;
         LocalDate nuevaFecha = LocalDate.of(2024, 12, 15);
         Optional<Turno> turnoInicial = turnoService.buscarPorID(id);
         if (turnoInicial.isPresent()){
@@ -68,13 +68,13 @@ public class TurnoServiceTest {
     @Order(4)
     public void ListarTodos(){
         List<Turno> listaTurnos = turnoService.buscarTodos();
-        assertEquals(1, listaTurnos.size());
+        assertEquals(4, listaTurnos.size());
     }
     @Test
     @Order(5)
     public void eliminarTurno(){
-        turnoService.turnoAEliminar(1L);
-        Optional<Turno> turnoEliminado = turnoService.buscarPorID(1L);
+        turnoService.turnoAEliminar(4L);
+        Optional<Turno> turnoEliminado = turnoService.buscarPorID(4L);
         assertFalse(turnoEliminado.isPresent());
     }
 }
