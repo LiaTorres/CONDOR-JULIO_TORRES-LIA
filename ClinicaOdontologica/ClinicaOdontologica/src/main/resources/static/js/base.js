@@ -96,7 +96,9 @@ function crearNavbar() {
                 </ul>
             </div>
         </div>
+    <a class="btn btn-error mx-2" href="/logout">Logout</a>
     </div>
+
   `;
 }
 
