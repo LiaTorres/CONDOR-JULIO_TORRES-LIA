@@ -32,9 +32,11 @@ public class DatosIniciales implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         String passSinCifrar= "admin";
+        String passSinCifrarUser= "lia123";
         String passCifrado=  passwordEncoder.encode(passSinCifrar);
+        String passCifradoUser=  passwordEncoder.encode(passSinCifrarUser);
         Usuario usuario= new Usuario("jorgito","jpereryradh","admin@admin.com",passCifrado, UsuarioRole.ROLE_ADMIN);
-        Usuario usuario2= new Usuario("lia","paolia","liapaola@lia.lia",passCifrado, UsuarioRole.ROLE_USER);
+        Usuario usuario2= new Usuario("lia","paolia","liapaola@lia.lia",passCifradoUser, UsuarioRole.ROLE_USER);
         usuarioRepository.save(usuario);
         usuarioRepository.save(usuario2);
 

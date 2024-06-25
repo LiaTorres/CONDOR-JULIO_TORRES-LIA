@@ -4,6 +4,7 @@ import BackEndC3.ClinicaOdontologica.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -34,15 +35,16 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http
-                .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests((authz)-> authz
-                        .requestMatchers("/post_pacientes.html","/post_odontologos.html")
-                        .hasRole("ADMIN")
-                        .anyRequest().authenticated()
-                )
-                .formLogin(withDefaults())
-                .logout(withDefaults());
+            .csrf(AbstractHttpConfigurer::disable)
+            .authorizeHttpRequests((authz)-> authz
+                    .requestMatchers("/post_pacientes.html","/post_odontologos.html")
+                    .hasRole("ADMIN")
+                    .requestMatchers(HttpMethod.PUT, "/odontologos/**", "/pacientes/**")
+                    .hasRole("ADMIN")
+                    .anyRequest().authenticated()
+            )
+            .formLogin(withDefaults())
+            .logout(withDefaults());
         return http.build();
-
     }
 }
